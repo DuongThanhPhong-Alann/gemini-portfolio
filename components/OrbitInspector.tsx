@@ -71,7 +71,7 @@ export default function OrbitInspector({
             <button
               onClick={onClose}
               className="p-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-400 hover:text-white transition-colors"
-              title="Đóng bảng thông tin"
+              title="Đóng"
             >
               <X className="w-4 h-4" />
             </button>
@@ -129,7 +129,7 @@ export default function OrbitInspector({
                   rel="noopener noreferrer"
                   className="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"
                 >
-                  <span>Mở web</span>
+                  <span>Mở website</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -161,7 +161,7 @@ export default function OrbitInspector({
           {activeSection === 4 && (
             <div className="space-y-3">
               <h3 className="text-lg font-bold text-white font-display">
-                Kỹ năng & Công nghệ
+                Công nghệ mình dùng
               </h3>
               <div className="grid grid-cols-2 gap-2 text-xs">
                 {SKILL_CATEGORIES.map((cat) => (
@@ -183,14 +183,14 @@ export default function OrbitInspector({
             <div className="space-y-3">
               <div>
                 <h3 className="text-lg font-bold text-white font-display">
-                  Học vấn & Mục tiêu
+                Học vấn và hướng đi
                 </h3>
                 <p className="text-xs text-indigo-300 font-semibold mt-1">
                   {PERSONAL_INFO.school} ({PERSONAL_INFO.period})
                 </p>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Ngành {PERSONAL_INFO.major}. Định hướng phát triển Web Development, Full-stack và IT Automation.
+                Mình học {PERSONAL_INFO.major} tại HUTECH, tập trung vào web full-stack và tự động hóa.
               </p>
             </div>
           )}
@@ -199,7 +199,7 @@ export default function OrbitInspector({
           {activeSection === 6 && (
             <div className="space-y-3">
               <h3 className="text-lg font-bold text-white font-display">
-                Liên hệ & Hợp tác
+                Liên hệ
               </h3>
               <div className="space-y-1.5 text-xs text-slate-300">
                 <div className="p-2 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-between">
@@ -220,7 +220,7 @@ export default function OrbitInspector({
           <div className="mt-4 pt-3 border-t border-slate-800/80">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-                Chọn sao để xem nội dung:
+                Chọn một ngôi sao để xem thông tin.
               </span>
               <span className="text-[10px] font-mono text-cyan-400">
                 0{activeSection + 1}/07

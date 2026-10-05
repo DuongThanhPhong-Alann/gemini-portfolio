@@ -32,12 +32,12 @@ export const PERSONAL_INFO = {
   phone: "0827274387",
   github: "https://github.com/AlannThanhPhong",
   linkedin: "https://www.linkedin.com/in/thanh-phong-alann-4b058341b",
-  bio: `Tôi là Dương Thanh Phong, sinh viên ngành Công nghệ Thông tin tại Đại học Công nghệ TP.HCM (HUTECH), khóa 2022–2026. Định hướng phát triển của tôi tập trung vào Web Development, Full-stack và IT Automation, với mong muốn xây dựng các sản phẩm phần mềm có tính ứng dụng thực tế cao.`,
-  experienceSummary: `Tôi có kinh nghiệm làm việc với C#, ASP.NET Core, Next.js, React, Node.js, SQL Server, MongoDB và Supabase. Bên cạnh việc lập trình frontend/backend, tôi còn xây dựng các quy trình tự động hóa bằng n8n, quản lý công việc với Jira, và tiếp cận các giải pháp tích hợp AI, công nghệ 3D/360°.`,
+  bio: `Mình là Phong, sinh viên Công nghệ Thông tin tại HUTECH (2022–2026). Mình làm web full-stack và các luồng tự động hóa, thích biến yêu cầu thực tế thành sản phẩm dùng được.`,
+  experienceSummary: `Mình đã làm với C#, ASP.NET Core, Next.js, React, Node.js, SQL Server, MongoDB và Supabase. Ngoài web, mình viết workflow bằng n8n, dùng Jira theo dõi công việc và thử tích hợp AI, 3D/360° vào sản phẩm.`,
   careerGoals: [
-    "Trở thành Full-stack Developer có năng lực xây dựng và triển khai độc lập các sản phẩm web hoàn chỉnh.",
-    "Mở rộng kiến thức về System Design, Cloud Architecture, CI/CD và tối ưu hóa hiệu năng hệ thống.",
-    "Nghiên cứu ứng dụng thực tế của AI workflows và tự động hóa để giải quyết các bài toán vận hành doanh nghiệp."
+    "Tự làm trọn một sản phẩm web, từ giao diện và API đến lúc đưa lên mạng.",
+    "Học thêm về thiết kế hệ thống, cloud, CI/CD và cách giữ ứng dụng chạy ổn định khi có nhiều người dùng.",
+    "Tìm thêm cách dùng AI và tự động hóa để giảm các thao tác lặp trong công việc."
   ]
 };
 
@@ -52,60 +52,60 @@ export const PROJECTS: ProjectDetail[] = [
     url: "https://www.devdes.click/",
     image: "/assets/devdes.webp",
     summary: "DevDes nhận thiết kế và làm phần mềm cho doanh nghiệp. Trên website, khách có thể xem dịch vụ, thử các mẫu giao diện trên nhiều thiết bị rồi nhắn với đội tư vấn ngay tại chỗ.",
-    purpose: "Giúp khách hàng tìm hiểu giải pháp, khám phá mẫu thiết kế và trực tiếp trao đổi với đội ngũ tư vấn ngay trên một luồng trải nghiệm liền mạch.",
-    role: "Full-stack Developer: Xây dựng cấu trúc trang với Next.js App Router, thiết kế API Route Handlers, kết nối cơ sở dữ liệu MongoDB và hoàn thiện giao diện xem trước responsive.",
+    purpose: "Để khách hiểu DevDes cung cấp dịch vụ gì, xem mẫu giao diện và liên hệ tư vấn ngay trên website.",
+    role: "Mình phụ trách cả frontend lẫn backend: dựng ứng dụng bằng Next.js App Router, viết Route Handlers, nối MongoDB và làm phần xem trước co giãn theo màn hình.",
     techStack: [
-      { name: "Next.js 16 (App Router)", role: "Tổ chức trang, layout và API Route Handlers phía máy chủ" },
-      { name: "React 19", role: "Xây dựng các component tương tác, chuyển đổi thiết bị và khung chat" },
-      { name: "TypeScript", role: "Định nghĩa kiểu dữ liệu cho mẫu giao diện, phiên làm việc và tin nhắn" },
-      { name: "MongoDB & Node.js Driver", role: "Lưu trữ dữ liệu hội thoại, tin nhắn với TTL index tự dọn dẹp" },
-      { name: "React Context & Hooks", role: "Quản lý ngôn ngữ dùng chung và đóng gói logic xử lý chat" },
-      { name: "Web APIs", role: "Cookie auth, FileReader đọc tệp và MediaRecorder ghi âm" }
+      { name: "Next.js 16 (App Router)", role: "Dựng các trang và xử lý API trên máy chủ" },
+      { name: "React 19", role: "Làm thư viện mẫu, phần xem trước và khung chat" },
+      { name: "TypeScript", role: "Quản lý kiểu dữ liệu cho mẫu giao diện và tin nhắn" },
+      { name: "MongoDB & Node.js Driver", role: "Lưu hội thoại và tự xóa dữ liệu hết hạn bằng TTL" },
+      { name: "React Context & Hooks", role: "Dùng chung lựa chọn ngôn ngữ và xử lý chat" },
+      { name: "Web APIs", role: "Đăng nhập bằng cookie, đọc tệp và thu âm trong trình duyệt" }
     ],
     keyFeatures: [
       {
-        title: "1. Trang giới thiệu thương hiệu và dịch vụ",
-        desc: "Bố cục rõ ràng, màu nền chuyển đổi theo vị trí cuộn, accordion và bộ lọc giúp người truy cập nhanh chóng nắm bắt các gói giải pháp."
+        title: "1. Trang dịch vụ",
+        desc: "Khách xem các dịch vụ và gói giải pháp; bộ lọc và accordion giúp tìm phần cần xem nhanh hơn."
       },
       {
         title: "2. Thư viện mẫu giao diện",
-        desc: "Danh sách mẫu giao diện phân loại theo danh mục, tổ chức dữ liệu bằng TypeScript giúp dùng chung giữa các trang và trong khung chat."
+        desc: "Các mẫu được chia theo danh mục và dùng chung ở trang thư viện lẫn khung chat."
       },
       {
         title: "3. Xem trước trên nhiều thiết bị",
-        desc: "Chuyển đổi khung xem trước tức thì giữa Desktop, Tablet và Mobile; hỗ trợ mở trang demo riêng bằng iframe."
+        desc: "Có thể xem từng mẫu ở kích thước máy tính, máy tính bảng hoặc điện thoại, rồi mở bản demo riêng."
       },
       {
         title: "4. Hỗ trợ tiếng Việt và tiếng Anh",
-        desc: "Chuyển đổi ngôn ngữ linh hoạt, lưu lựa chọn bằng cookie và đọc ở server-side để tối ưu hiển thị ban đầu."
+        desc: "Khách đổi qua lại giữa tiếng Việt và tiếng Anh; lựa chọn được lưu bằng cookie."
       },
       {
-        title: "5. Chat tư vấn khách hàng đa phương tiện",
-        desc: "Hỗ trợ nhắn tin văn bản, gửi file, ảnh, video, ghi âm trực tiếp và chia sẻ thẻ mẫu thiết kế ngay trong hội thoại."
+        title: "5. Khung chat tư vấn",
+        desc: "Khách có thể nhắn tin, gửi ảnh hoặc tệp, ghi âm và chia sẻ mẫu giao diện ngay trong cuộc trò chuyện."
       },
       {
-        title: "6. Trang quản trị hội thoại",
-        desc: "Khu vực quản trị riêng để nhân viên theo dõi danh sách khách hàng cần tư vấn và phản hồi nhanh chóng."
+        title: "6. Quản lý hội thoại",
+        desc: "Nhân viên xem các cuộc trò chuyện và trả lời khách từ trang quản trị riêng."
       },
       {
-        title: "7. Quản lý phiên & Kiểm soát truy cập",
-        desc: "Xác thực phiên với cookie HttpOnly, kiểm tra giới hạn tần suất thao tác và tự động dọn dẹp dữ liệu hết hạn bằng MongoDB TTL."
+        title: "7. Phiên đăng nhập và dữ liệu",
+        desc: "Cookie HttpOnly giữ phiên đăng nhập; giới hạn tần suất và TTL giúp kiểm soát yêu cầu, dọn dữ liệu cũ."
       },
       {
-        title: "8. Tối ưu SEO & Metadata",
-        desc: "Khai báo Open Graph, tự động tạo Sitemap và Robots.txt, tối ưu hóa hiển thị font tiếng Việt."
+        title: "8. Chia sẻ và tìm kiếm",
+        desc: "Trang có metadata khi chia sẻ, sitemap, robots.txt và font hiển thị tiếng Việt."
       }
     ],
     technicalHighlights: [
-      "Kiến trúc phân tầng rõ ràng giữa App Router, components dùng lại và thư viện xử lý logic dữ liệu.",
-      "Cơ chế polling tin nhắn thông minh có kiểm soát để tránh gửi yêu cầu chồng chéo.",
-      "Bảo mật cookie HttpOnly, SameSite và kiểm tra kích thước payload ở phía máy chủ."
+      "Tách trang, component dùng lại và phần xử lý dữ liệu thành từng khu vực riêng.",
+      "Kiểm soát việc hỏi tin nhắn mới để các yêu cầu không chạy chồng lên nhau.",
+      "Dùng cookie HttpOnly, SameSite và giới hạn kích thước dữ liệu gửi lên máy chủ."
     ],
     metricsOrHighlights: [
       { label: "Nền tảng", value: "Next.js 16 + React 19" },
-      { label: "Cơ sở dữ liệu", value: "MongoDB + TTL Index" },
+      { label: "Lưu trữ", value: "MongoDB + TTL" },
       { label: "Ngôn ngữ", value: "Song ngữ VI / EN" },
-      { label: "Tư vấn", value: "Chat Realtime & Audio" }
+      { label: "Chat", value: "Tin nhắn & ghi âm" }
     ]
   },
   {
@@ -118,51 +118,51 @@ export const PROJECTS: ProjectDetail[] = [
     url: "https://www.loopixstudio.net/",
     image: "/assets/loopix.webp",
     summary: "Loopix làm tour 360° cho khách sạn, resort, bất động sản và văn phòng. Mình xây trang để khách tự xem không gian trước khi liên hệ, kèm form gửi yêu cầu báo giá.",
-    purpose: "Giúp khách hàng hình dung toàn diện về không gian thông qua trải nghiệm tham quan trực tuyến trước khi liên hệ hoặc đến xem thực tế.",
-    role: "Frontend Developer: Phát triển giao diện bằng Next.js và React, tích hợp các bộ tour 360° có sẵn qua iframe tùy biến, xây dựng API kiểm tra dữ liệu biểu mẫu báo giá.",
+    purpose: "Khách có thể xem không gian qua tour 360° trước khi gọi hỏi hoặc đến xem trực tiếp.",
+    role: "Mình làm frontend bằng Next.js và React, nhúng tour 360° qua iframe và viết API nhận, kiểm tra yêu cầu báo giá.",
     techStack: [
-      { name: "Next.js 16 (App Router)", role: "Tổ chức các trang, layout, route động và API trong cùng ứng dụng" },
-      { name: "React 19", role: "Xây dựng các thành phần giao diện và xử lý tương tác phía trình duyệt" },
-      { name: "Virtual Tour 360°", role: "Tích hợp và tùy biến giao diện tour The Mango Trail và The Odys Boutique" },
-      { name: "Next.js Route Handlers", role: "Endpoint POST /api/quote kiểm tra và xác thực dữ liệu báo giá" },
-      { name: "Swiper & AOS", role: "Slider hình ảnh trình diễn và hiệu ứng xuất hiện theo thao tác cuộn" },
-      { name: "Web Storage API", role: "Lưu tùy chọn ngôn ngữ và trạng thái phục vụ trải nghiệm người dùng" }
+      { name: "Next.js 16 (App Router)", role: "Dựng các trang, đường dẫn dự án và API" },
+      { name: "React 19", role: "Xử lý giao diện và thao tác trên trang" },
+      { name: "Virtual Tour 360°", role: "Nhúng tour của The Mango Trail và The Odys Boutique" },
+      { name: "Next.js Route Handlers", role: "Nhận và kiểm tra yêu cầu tại POST /api/quote" },
+      { name: "Swiper & AOS", role: "Làm slider ảnh và hiệu ứng khi cuộn trang" },
+      { name: "Web Storage API", role: "Ghi nhớ ngôn ngữ người xem đã chọn" }
     ],
     keyFeatures: [
       {
-        title: "1. Trải nghiệm Virtual Tour 360°",
-        desc: "Nhúng các bộ tour thực tế ảo trực tiếp vào giao diện, cho phép khách hàng tương tác và chuyển góc nhìn toàn cảnh không gian."
+        title: "1. Tour tham quan 360°",
+        desc: "Khách tự xoay góc nhìn và xem các khu vực trong không gian ngay trên website."
       },
       {
-        title: "2. Danh mục dự án theo loại hình",
-        desc: "Phân loại rõ ràng cho Hotel, Resort, Homestay, Co-working space và Căn hộ với hình ảnh chất lượng cao."
+        title: "2. Các loại không gian",
+        desc: "Dự án được chia theo khách sạn, resort, homestay, văn phòng chung và căn hộ."
       },
       {
-        title: "3. Bảng giá dịch vụ theo nhóm",
-        desc: "Trình bày các gói chi phí theo thẻ trực quan kèm thanh điều hướng cuộn tự động đánh dấu nhóm đang xem."
+        title: "3. Bảng giá",
+        desc: "Các gói dịch vụ được xếp theo nhóm; thanh bên cho biết người xem đang ở phần nào."
       },
       {
-        title: "4. Biểu mẫu tính & gửi yêu cầu báo giá",
-        desc: "Người dùng chọn thành phố, loại không gian, diện tích; form gửi dữ liệu bất đồng bộ đến API xác thực hai chiều."
+        title: "4. Gửi yêu cầu báo giá",
+        desc: "Khách chọn thành phố, loại không gian và diện tích; website gửi thông tin để máy chủ kiểm tra."
       },
       {
-        title: "5. Chuyên mục Magazine",
-        desc: "Cung cấp các bài viết về ứng dụng thực tế ảo và công nghệ hình ảnh trong du lịch, bất động sản."
+        title: "5. Bài viết",
+        desc: "Chuyên mục chia sẻ về tour ảo và hình ảnh trong du lịch, khách sạn, bất động sản."
       },
       {
-        title: "6. Chuyển đổi ngôn ngữ Việt – Anh",
-        desc: "Lưu lựa chọn ngôn ngữ bằng localStorage để duy trì trạng thái trên toàn bộ các trang con."
+        title: "6. Tiếng Việt và tiếng Anh",
+        desc: "Website ghi nhớ ngôn ngữ đã chọn khi chuyển giữa các trang."
       }
     ],
     technicalHighlights: [
-      "Sử dụng App Router với slug động và generateStaticParams cho các trang chi tiết dự án.",
-      "Tối ưu lazy loading cho hình ảnh và iframe tour 360°, giữ thời gian tải ban đầu nhanh chóng.",
-      "Xử lý form báo giá bất đồng bộ, kiểm tra dữ liệu hợp lệ ở cả client và server."
+      "Dùng đường dẫn riêng cho từng dự án và tạo trước các trang chi tiết.",
+      "Chỉ tải ảnh và tour 360° khi cần để trang ban đầu nhẹ hơn.",
+      "Kiểm tra thông tin báo giá trên cả trình duyệt lẫn máy chủ."
     ],
     metricsOrHighlights: [
       { label: "Nền tảng", value: "Next.js 16 + React 19" },
-      { label: "Công nghệ Tour", value: "iFrame 360° Nhúng" },
-      { label: "API Báo giá", value: "POST /api/quote" },
+      { label: "Tour", value: "Nhúng tour 360°" },
+      { label: "Báo giá", value: "POST /api/quote" },
       { label: "Ngôn ngữ", value: "Song ngữ VI / EN" }
     ]
   },
@@ -176,52 +176,52 @@ export const PROJECTS: ProjectDetail[] = [
     url: "https://sensescene.studio/",
     image: "/assets/sense.webp",
     summary: "Trang portfolio cho Sense & Scene, studio chuyên CGI, motion design và không gian số. Mình làm trang cuộn dài để trưng bày tác phẩm, với nội dung bằng 5 ngôn ngữ.",
-    purpose: "Thể hiện bản sắc thẩm mỹ và năng lực sáng tạo của studio thông qua hình ảnh, typography khổ lớn, chuỗi chuyển động và âm nhạc nền tương tác.",
-    role: "Frontend Developer: Triển khai toàn bộ animation bằng GSAP & ScrollTrigger, xây dựng trình phát nhạc nền, hỗ trợ đa ngôn ngữ và tối ưu hóa hiệu năng theo thiết bị.",
+    purpose: "Giúp studio trưng bày các dự án và giới thiệu phong cách hình ảnh của mình bằng một portfolio có chuyển động và nhạc nền.",
+    role: "Mình làm frontend, dựng chuyển động bằng GSAP và ScrollTrigger, thêm trình phát nhạc và hỗ trợ 5 ngôn ngữ.",
     techStack: [
-      { name: "Next.js 15 (App Router)", role: "Cấu trúc ứng dụng, tối ưu hóa tài nguyên Next/Image và Next/Font" },
-      { name: "React 19 & TypeScript 5", role: "Quản lý state giao diện, dynamic audio controls và chuyển đổi ngôn ngữ" },
-      { name: "GSAP 3 & ScrollTrigger", role: "Xây dựng chuỗi chuyển động, hiệu ứng xuất hiện và parallax theo cuộn chuột" },
-      { name: "CSS thuần & clamp()", role: "Bố cục responsive bằng Grid, Flexbox và tính toán kích thước chữ thích ứng" },
-      { name: "HTMLMediaElement", role: "Trình phát nhạc nền với playlist 4 bài, hiển thị thanh sóng âm thanh" },
-      { name: "Browser APIs", role: "Intersection Observer hoãn tải video, Page Visibility tạm dừng nhạc khi ẩn tab" }
+      { name: "Next.js 15 (App Router)", role: "Dựng trang và tải ảnh, font bằng công cụ của Next.js" },
+      { name: "React 19 & TypeScript 5", role: "Quản lý giao diện, trình phát nhạc và ngôn ngữ" },
+      { name: "GSAP 3 & ScrollTrigger", role: "Điều khiển chuyển động theo thao tác cuộn" },
+      { name: "CSS thuần & clamp()", role: "Dàn trang bằng Grid, Flexbox và cỡ chữ co giãn" },
+      { name: "HTMLMediaElement", role: "Phát 4 bài nhạc và hiển thị nhịp âm thanh" },
+      { name: "Browser APIs", role: "Tải video khi cần và dừng nhạc khi ẩn tab" }
     ],
     keyFeatures: [
       {
-        title: "1. Trình diễn thị giác & Đồng hồ thời gian thực",
-        desc: "Phần mở đầu kết hợp typography nổi bật, video và đồng hồ cập nhật theo thời gian thực tại Sài Gòn (múi giờ GMT+7)."
+        title: "1. Màn hình mở đầu",
+        desc: "Phần đầu trang có video, chữ lớn và đồng hồ chạy theo giờ Sài Gòn."
       },
       {
-        title: "2. Chuyển động mượt mà với GSAP Timeline",
-        desc: "Chuỗi chuyển động gắn liền với thao tác cuộn của người dùng, phản hồi tự nhiên theo vị trí con trỏ chuột."
+        title: "2. Chuyển động theo thao tác cuộn",
+        desc: "GSAP điều khiển các đoạn chuyển cảnh khi người xem cuộn trang và rê chuột."
       },
       {
-        title: "3. Trình phát nhạc nền tích hợp",
-        desc: "Người dùng có thể phát, dừng, chuyển bài trong danh sách 4 bản nhạc chill ambient có hiển thị sóng âm."
+        title: "3. Nhạc nền",
+        desc: "Người xem có thể bật nhạc, tạm dừng hoặc chuyển giữa 4 bài."
       },
       {
-        title: "4. Hỗ trợ 5 ngôn ngữ quốc tế",
-        desc: "Hỗ trợ Tiếng Việt, Tiếng Anh, Tiếng Trung, Tiếng Nhật và Tiếng Hàn với cơ chế ngắt từ phù hợp từng ngôn ngữ."
+        title: "4. Năm ngôn ngữ",
+        desc: "Nội dung có tiếng Việt, Anh, Trung, Nhật và Hàn."
       },
       {
-        title: "5. Cơ chế tự thích ứng theo thiết bị (Adaptive Motion)",
-        desc: "Tự động nhận diện thiết bị có cấu hình thấp hoặc chế độ giảm chuyển động (prefers-reduced-motion) để tối ưu độ mượt."
+        title: "5. Điều chỉnh chuyển động",
+        desc: "Trang giảm bớt chuyển động khi thiết bị yếu hoặc người xem bật chế độ giảm hiệu ứng."
       },
       {
-        title: "6. Hoãn tải tài nguyên thông minh",
-        desc: "Sử dụng Intersection Observer để chỉ tải video khi gần cuộn tới, tạm dừng media khi tab bị ẩn để tiết kiệm pin/CPU."
+        title: "6. Tải nội dung khi cần",
+        desc: "Video chỉ tải khi sắp xuất hiện trên màn hình; nhạc và video dừng khi tab bị ẩn."
       }
     ],
     technicalHighlights: [
-      "Quản lý vòng đời listener, observer và animation chặt chẽ, dọn dẹp đầy đủ khi unmount.",
-      "Tối ưu trải nghiệm âm thanh và video với Page Visibility API, tiết kiệm tài nguyên hệ thống.",
-      "Thiết kế typography thích ứng với clamp() đảm bảo tỷ lệ hoàn hảo trên mọi kích thước màn hình."
+      "Dọn listener, observer và animation khi rời khỏi trang.",
+      "Dừng âm thanh và video khi người xem chuyển sang tab khác.",
+      "Dùng clamp() để chữ thay đổi theo kích thước màn hình."
     ],
     metricsOrHighlights: [
       { label: "Nền tảng", value: "Next.js 15 + React 19" },
       { label: "Animation", value: "GSAP 3 & ScrollTrigger" },
-      { label: "Đa ngôn ngữ", value: "5 Ngôn ngữ (VI/EN/ZH/JA/KO)" },
-      { label: "Tối ưu", value: "Adaptive Motion & Data Saver" }
+      { label: "Ngôn ngữ", value: "VI / EN / ZH / JA / KO" },
+      { label: "Chuyển động", value: "Có chế độ giảm hiệu ứng" }
     ]
   }
 ];
@@ -230,47 +230,47 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     category: "Lập trình & Nền tảng",
     skills: [
-      { name: "C#", level: "Thành thạo", desc: "OOP, ASP.NET Core API, LINQ, Entity Framework" },
-      { name: "JavaScript / TypeScript", level: "Thành thạo", desc: "ES6+, Async/Await, Type safety, Clean Code" },
-      { name: "HTML5 & CSS3", level: "Thành thạo", desc: "Semantic HTML, Flexbox, Grid, Responsive Design" },
-      { name: "Node.js", level: "Khá", desc: "Xây dựng RESTful API, Route Handlers, Automation scripts" }
+      { name: "C#", level: "Thành thạo", desc: "OOP, ASP.NET Core, LINQ, Entity Framework" },
+      { name: "JavaScript / TypeScript", level: "Thành thạo", desc: "ES6+, async/await và kiểm tra kiểu dữ liệu" },
+      { name: "HTML5 & CSS3", level: "Thành thạo", desc: "HTML ngữ nghĩa, Flexbox, Grid và giao diện co giãn" },
+      { name: "Node.js", level: "Khá", desc: "REST API, Route Handlers và script tự động hóa" }
     ]
   },
   {
     category: "Frontend Development",
     skills: [
-      { name: "Next.js (App Router)", level: "Chuyên sâu", desc: "Next 14/15/16, SSR, SSG, Route Handlers, Metadata SEO" },
-      { name: "React 18 / 19", level: "Chuyên sâu", desc: "Hooks, Context, Custom Hooks, Kiến trúc Component" },
-      { name: "Tailwind CSS", level: "Thành thạo", desc: "Utility-first, Custom Themes, Responsive, Glassmorphism" },
-      { name: "Framer Motion & GSAP", level: "Khá", desc: "ScrollTrigger, Micro-interactions, Canvas Integration" }
+      { name: "Next.js (App Router)", level: "Chuyên sâu", desc: "SSR, SSG, Route Handlers và metadata" },
+      { name: "React 18 / 19", level: "Chuyên sâu", desc: "Hooks, Context và component dùng lại" },
+      { name: "Tailwind CSS", level: "Thành thạo", desc: "Responsive, theme riêng và giao diện kính mờ" },
+      { name: "Framer Motion & GSAP", level: "Khá", desc: "Chuyển động khi cuộn và tương tác nhỏ" }
     ]
   },
   {
     category: "Backend & Cơ sở Dữ liệu",
     skills: [
-      { name: "ASP.NET Core", level: "Thành thạo", desc: "Web API, Dependency Injection, Repository Pattern, JWT" },
-      { name: "SQL Server", level: "Thành thạo", desc: "Thiết kế CSDL quan hệ, Stored Procedures, Tối ưu truy vấn" },
-      { name: "Supabase & PostgreSQL", level: "Khá", desc: "Bảo mật RLS, Realtime Subscriptions, Database Functions" },
-      { name: "MongoDB", level: "Khá", desc: "NoSQL schema design, Aggregation, TTL indexes" }
+      { name: "ASP.NET Core", level: "Thành thạo", desc: "Web API, Dependency Injection, JWT" },
+      { name: "SQL Server", level: "Thành thạo", desc: "Cơ sở dữ liệu quan hệ, thủ tục lưu và truy vấn" },
+      { name: "Supabase & PostgreSQL", level: "Khá", desc: "RLS, cập nhật dữ liệu trực tiếp và hàm cơ sở dữ liệu" },
+      { name: "MongoDB", level: "Khá", desc: "Thiết kế dữ liệu, aggregation và TTL index" }
     ]
   },
   {
     category: "Tự động hóa & Công cụ",
     skills: [
-      { name: "n8n Automation", level: "Chuyên sâu", desc: "Thiết kế workflow tự động hóa, cào dữ liệu, tích hợp Webhooks" },
-      { name: "Jira / Scrum", level: "Thành thạo", desc: "Quản lý tiến độ sprint, phân tích task, làm việc nhóm theo Agile" },
-      { name: "Git & GitHub", level: "Thành thạo", desc: "Quản lý phiên bản, nhánh, PR và GitHub Actions cơ bản" },
-      { name: "3D/360° & AI", level: "Thực hành", desc: "Three.js, WebGL, Virtual Tour 360°, Gemini API integration" }
+      { name: "n8n Automation", level: "Chuyên sâu", desc: "Workflow, thu thập dữ liệu và webhook" },
+      { name: "Jira / Scrum", level: "Thành thạo", desc: "Theo dõi sprint, chia việc và làm theo Agile" },
+      { name: "Git & GitHub", level: "Thành thạo", desc: "Nhánh, pull request và GitHub Actions cơ bản" },
+      { name: "3D/360° & AI", level: "Thực hành", desc: "Three.js, WebGL, tour 360° và Gemini API" }
     ]
   }
 ];
 
 export const CONSTELLATION_NODES = [
   { id: "hero", starName: "Song Tử", subtitle: "Giới thiệu", desc: "Tổng quan chòm sao", isProject: false },
-  { id: "devdes", starName: "Castor", subtitle: "DevDes", desc: "Website dịch vụ số & Chat MongoDB", isProject: true },
-  { id: "loopix", starName: "Pollux", subtitle: "Loopix Studio", desc: "Nền tảng Virtual Tour 360°", isProject: true },
-  { id: "sense", starName: "Alhena", subtitle: "Sense & Scene", desc: "Studio sáng tạo & GSAP Motion", isProject: true },
-  { id: "skills", starName: "Wasat", subtitle: "Kỹ năng", desc: "Hệ thống công nghệ & Framework", isProject: false },
-  { id: "education", starName: "Mebsuta", subtitle: "Học vấn", desc: "ĐH HUTECH & Định hướng", isProject: false },
-  { id: "contact", starName: "Propus", subtitle: "Liên hệ", desc: "Thông tin kết nối & Email", isProject: false }
+    { id: "devdes", starName: "Castor", subtitle: "DevDes", desc: "Website dịch vụ và tư vấn trực tuyến", isProject: true },
+    { id: "loopix", starName: "Pollux", subtitle: "Loopix Studio", desc: "Tour tham quan 360°", isProject: true },
+    { id: "sense", starName: "Alhena", subtitle: "Sense & Scene", desc: "Portfolio studio và chuyển động hình ảnh", isProject: true },
+    { id: "skills", starName: "Wasat", subtitle: "Kỹ năng", desc: "Công nghệ mình đã dùng", isProject: false },
+    { id: "education", starName: "Mebsuta", subtitle: "Học vấn", desc: "Học tập và hướng phát triển", isProject: false },
+    { id: "contact", starName: "Propus", subtitle: "Liên hệ", desc: "Email, điện thoại và hồ sơ", isProject: false }
 ];

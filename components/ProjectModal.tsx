@@ -94,14 +94,14 @@ export default function ProjectModal({
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-xs font-semibold transition-all"
               >
-                <span>Xem Website Live</span>
+                <span>Mở website</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
 
               <button
                 onClick={onClose}
                 className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
-                aria-label="Đóng cửa sổ"
+                aria-label="Đóng"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -134,14 +134,14 @@ export default function ProjectModal({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
                 <h4 className="text-xs font-semibold text-cyan-300 uppercase tracking-wider mb-2">
-                  Tổng quan dự án
+                  Giới thiệu
                 </h4>
                 <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">{project.summary}</p>
               </div>
 
               <div className="p-4 rounded-xl bg-slate-900/40 border border-slate-800">
                 <h4 className="text-xs font-semibold text-purple-300 uppercase tracking-wider mb-2">
-                  Mục đích & Bài toán giải quyết
+                  Mục tiêu
                 </h4>
                 <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">{project.purpose}</p>
               </div>
@@ -150,7 +150,7 @@ export default function ProjectModal({
             {/* Personal Role */}
             <div className="p-4 rounded-xl bg-slate-900/50 border border-slate-800">
               <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-1">
-                Vai trò đóng góp cá nhân
+                Phần mình phụ trách
               </h4>
               <p className="text-slate-200 text-xs sm:text-sm">{project.role}</p>
             </div>
@@ -159,7 +159,7 @@ export default function ProjectModal({
             <div>
               <h4 className="text-xs font-semibold text-slate-200 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                 <Code2 className="w-3.5 h-3.5 text-cyan-400" />
-                Công nghệ sử dụng & Trách nhiệm trong dự án
+                Công nghệ trong dự án
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {project.techStack.map((tech, idx) => (
@@ -182,7 +182,7 @@ export default function ProjectModal({
             <div>
               <h4 className="text-xs font-semibold text-slate-200 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                 <Layers className="w-3.5 h-3.5 text-purple-400" />
-                Các chức năng chính
+                Tính năng chính
               </h4>
               <div className="space-y-2">
                 {project.keyFeatures.map((feat, idx) => (
@@ -202,7 +202,7 @@ export default function ProjectModal({
             {/* Technical Highlights */}
             <div>
               <h4 className="text-xs font-semibold text-slate-200 uppercase tracking-wider mb-2.5">
-                Điểm nổi bật về mặt kỹ thuật
+                Một vài chi tiết kỹ thuật
               </h4>
               <div className="p-3.5 rounded-xl bg-slate-900/40 border border-slate-800 space-y-2">
                 {project.technicalHighlights.map((hl, idx) => (
@@ -231,7 +231,7 @@ export default function ProjectModal({
               rel="noopener noreferrer"
               className="px-3.5 py-1.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-1.5 transition-all shadow-glow-cyan"
             >
-              <span>Xem trực tiếp Live</span>
+              <span>Mở website</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
 

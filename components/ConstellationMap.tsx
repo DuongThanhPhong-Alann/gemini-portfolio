@@ -42,7 +42,7 @@ export default function ConstellationMap({
           <div className="flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
             <span className="text-[10px] font-mono text-slate-300 uppercase tracking-wider">
-              Chòm sao Song Tử
+              Song Tử
             </span>
           </div>
           <span className="text-[10px] text-cyan-400 font-mono">
@@ -129,7 +129,7 @@ export default function ConstellationMap({
 
         {/* Current Destination Name */}
         <div className="mt-1 pt-1.5 border-t border-slate-800 flex items-center justify-between text-[10px]">
-          <span className="text-slate-400">Vị trí:</span>
+          <span className="text-slate-400">Đang xem:</span>
           <span className="text-cyan-300 font-medium">
             {currentNode?.starName} ({currentNode?.subtitle})
           </span>

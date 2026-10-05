@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Dương Thanh Phong | Gemini Universe — Full-stack & Automation Portfolio',
+  title: 'Dương Thanh Phong | Portfolio',
   description:
-    'Portfolio 3D lấy cảm hứng từ chòm sao Song Tử (Gemini Constellation) của Dương Thanh Phong. Sinh viên CNTT HUTECH, Full-stack Developer chuyên sâu Next.js, React, C#, ASP.NET, n8n Automation & 3D/360° web.',
+    'Portfolio của Dương Thanh Phong, sinh viên CNTT tại HUTECH. Xem các dự án web full-stack, tự động hóa và trải nghiệm 3D/360°.',
   keywords: [
     'Dương Thanh Phong',
     'Portfolio 3D',
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Dương Thanh Phong' }],
   openGraph: {
-    title: 'Dương Thanh Phong | Gemini Universe 3D Portfolio',
+    title: 'Dương Thanh Phong | Portfolio 3D',
     description:
-      'Hành trình không gian 3D khám phá các dự án DevDes, Loopix Studio, Sense & Scene Studio cùng hệ thống kỹ năng Full-stack & Automation.',
+      'Các dự án DevDes, Loopix Studio, Sense & Scene cùng những công nghệ mình sử dụng trong web và tự động hóa.',
     url: 'https://duongthanhphong.dev',
     siteName: 'Dương Thanh Phong Portfolio',
     locale: 'vi_VN',

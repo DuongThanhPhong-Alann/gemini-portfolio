@@ -84,7 +84,7 @@ export default function ConstellationSelector({
             className="px-2.5 py-1.5 rounded-xl text-xs font-mono shrink-0 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white flex items-center gap-1"
           >
             <Sparkles className="w-3 h-3 text-cyan-400" />
-            <span>Tất cả (15) ▾</span>
+            <span>Cả 15 chòm sao ▾</span>
           </button>
         </div>
       )}
@@ -98,14 +98,14 @@ export default function ConstellationSelector({
               ? 'bg-cyan-950/80 border-cyan-400 text-cyan-200 shadow-cyan-950/40'
               : 'bg-slate-950/80 border-slate-800 text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 shadow-slate-950/40'
           }`}
-          title="Mở danh sách khám phá 15 chòm sao trên bầu trời"
+          title="Mở danh sách 15 chòm sao"
         >
           <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
           <span className="font-semibold">
-            {activeConstellation ? `${activeConstellation.symbol} ${activeConstellation.name}` : 'Khám phá 15 chòm sao'}
+            {activeConstellation ? `${activeConstellation.symbol} ${activeConstellation.name}` : 'Xem 15 chòm sao'}
           </span>
           <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-800/80 text-cyan-400 border border-slate-700">
-            Warp 🚀
+            Mở bản đồ
           </span>
         </button>
       </div>
@@ -129,10 +129,10 @@ export default function ConstellationSelector({
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-white font-display">
-                      Bản đồ Khám phá Thiên văn
+                      Khám phá chòm sao
                     </h3>
                     <p className="text-xs text-slate-400">
-                      Chọn một chòm sao để camera bay thẳng xuyên vũ trụ đến khám phá
+                      Chọn một chòm sao trên bản đồ để xem gần hơn.
                     </p>
                   </div>
                 </div>
@@ -160,14 +160,14 @@ export default function ConstellationSelector({
                     <div className="text-left">
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-white group-hover:text-cyan-300">
-                          Chòm sao Song Tử (Gemini)
+                          Song Tử (Gemini)
                         </span>
                         <span className="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 font-mono">
-                          Trung tâm Portfolio
+                          Portfolio của mình
                         </span>
                       </div>
                       <p className="text-xs text-slate-400">
-                        Hành trình dự án DevDes, Loopix Studio, Sense & Scene và hồ sơ năng lực
+                        Các dự án web và những công nghệ mình sử dụng
                       </p>
                     </div>
                   </div>
@@ -185,7 +185,7 @@ export default function ConstellationSelector({
                       : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
                   }`}
                 >
-                  Tất cả ({CELESTIAL_CONSTELLATIONS.length})
+                  Tất cả {CELESTIAL_CONSTELLATIONS.length}
                 </button>
                 <button
                   onClick={() => setFilterRegion('zenith-nadir')}
@@ -195,7 +195,7 @@ export default function ConstellationSelector({
                       : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
                   }`}
                 >
-                  Thiên Đỉnh & Thiên Đế (4)
+                  Ngoài hoàng đạo (4)
                 </button>
                 <button
                   onClick={() => setFilterRegion('zodiac')}
@@ -205,7 +205,7 @@ export default function ConstellationSelector({
                       : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
                   }`}
                 >
-                  11 Hoàng Đạo
+                  11 cung Hoàng Đạo
                 </button>
               </div>
 
@@ -216,9 +216,9 @@ export default function ConstellationSelector({
                     const isSelected = activeConstellationId === c.id;
                     const regionTag =
                       c.region === 'zenith'
-                        ? 'Thiên Đỉnh (Trên đầu)'
+                        ? 'Phía trên Song Tử'
                         : c.region === 'nadir'
-                        ? 'Thiên Đế (Dưới chân)'
+                        ? 'Phía dưới Song Tử'
                         : 'Hoàng Đạo';
 
                     return (
@@ -259,7 +259,7 @@ export default function ConstellationSelector({
               {/* Modal Footer */}
               <div className="p-3 border-t border-slate-800/80 bg-slate-950 text-center">
                 <span className="text-xs font-mono text-slate-400">
-                  Tip: Bạn cũng có thể click trực tiếp vào các ngôi sao 3D trên màn hình để bay tới đó
+                  Mẹo: chọn trực tiếp một ngôi sao trên màn hình để đến chòm sao đó.
                 </span>
               </div>
             </motion.div>

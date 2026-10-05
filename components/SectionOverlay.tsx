@@ -71,7 +71,7 @@ export default function SectionOverlay({
             <div className="p-6 sm:p-9 rounded-2xl bg-slate-950/85 border border-slate-800/90 backdrop-blur-xl shadow-2xl select-none">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700/80 text-cyan-300 text-xs font-mono mb-4">
-                <span>♊︎ Chòm sao Song Tử (Gemini)</span>
+                <span>♊︎ Song Tử · Portfolio cá nhân</span>
               </div>
 
               {/* Personal Title */}
@@ -90,11 +90,11 @@ export default function SectionOverlay({
               {/* Key Info Points */}
               <div className="grid grid-cols-2 gap-3 mb-6 text-xs text-slate-300">
                 <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <div className="text-[11px] text-slate-400">Trường đào tạo</div>
+                  <div className="text-[11px] text-slate-400">Trường</div>
                   <div className="font-semibold text-slate-200">ĐH HUTECH (2022–2026)</div>
                 </div>
                 <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                  <div className="text-[11px] text-slate-400">Dự án hoàn thiện</div>
+                  <div className="text-[11px] text-slate-400">Dự án tiêu biểu</div>
                   <div className="font-semibold text-cyan-300">DevDes · Loopix · SenseScene</div>
                 </div>
               </div>
@@ -105,14 +105,14 @@ export default function SectionOverlay({
                   onClick={() => onNavigate(1)}
                   className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center gap-2 transition-all hover:scale-105 active:scale-95 shadow-glow-cyan"
                 >
-                  <span>Khám phá các dự án</span>
+                  <span>Xem dự án</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={() => onNavigate(6)}
                   className="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold transition-all"
                 >
-                  Thông tin liên hệ
+                  Liên hệ
                 </button>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function SectionOverlay({
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
                   Castor · Dự án 01
                 </span>
-                <span className="text-slate-400 font-mono">Dự án Web & Chat</span>
+                <span className="text-slate-400 font-mono">Website & tư vấn trực tuyến</span>
               </div>
 
               {/* Title & Subtitle */}
@@ -144,7 +144,7 @@ export default function SectionOverlay({
                 DevDes
               </h2>
               <p className="text-xs sm:text-sm text-cyan-300 font-medium mb-3">
-                Website Dịch vụ Số, Thư viện Giao diện & Chat Realtime
+                Dịch vụ web, thư viện giao diện và chat tư vấn
               </p>
 
               {/* Thumbnail image */}
@@ -164,7 +164,7 @@ export default function SectionOverlay({
 
               {/* Tech Badges */}
               <div className="flex flex-wrap gap-1.5 mb-5">
-                {['Next.js 16', 'React 19', 'TypeScript', 'MongoDB', 'Real-time Chat', 'Responsive Preview'].map((t) => (
+                {['Next.js 16', 'React 19', 'TypeScript', 'MongoDB', 'Chat trực tuyến', 'Xem trên nhiều thiết bị'].map((t) => (
                   <span
                     key={t}
                     className="px-2 py-0.5 rounded-md text-[11px] bg-slate-900 border border-slate-700/80 text-slate-300"
@@ -189,7 +189,7 @@ export default function SectionOverlay({
                   rel="noopener noreferrer"
                   className="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-slate-600 text-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-all"
                 >
-                  <span>Mở website live</span>
+                  <span>Mở website</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -214,7 +214,7 @@ export default function SectionOverlay({
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                   Pollux · Dự án 02
                 </span>
-                <span className="text-slate-400 font-mono">Virtual Tour 360°</span>
+                <span className="text-slate-400 font-mono">Tour 360°</span>
               </div>
 
               {/* Title & Subtitle */}
@@ -222,7 +222,7 @@ export default function SectionOverlay({
                 Loopix Studio
               </h2>
               <p className="text-xs sm:text-sm text-amber-300 font-medium mb-3">
-                Nền tảng Virtual Tour 360° & Số hóa Không gian
+                Tour 360° cho khách sạn và không gian
               </p>
 
               {/* Thumbnail image */}
@@ -267,7 +267,7 @@ export default function SectionOverlay({
                   rel="noopener noreferrer"
                   className="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-slate-600 text-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-all"
                 >
-                  <span>Mở website live</span>
+                  <span>Mở website</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -292,7 +292,7 @@ export default function SectionOverlay({
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
                   Alhena · Dự án 03
                 </span>
-                <span className="text-slate-400 font-mono">Creative Studio</span>
+                <span className="text-slate-400 font-mono">Studio sáng tạo</span>
               </div>
 
               {/* Title & Subtitle */}
@@ -300,7 +300,7 @@ export default function SectionOverlay({
                 Sense & Scene Studio
               </h2>
               <p className="text-xs sm:text-sm text-purple-300 font-medium mb-3">
-                Website Studio Sáng tạo Đa ngôn ngữ & Nghệ thuật Thị giác
+                Portfolio studio CGI và motion design
               </p>
 
               {/* Thumbnail image */}
@@ -320,7 +320,7 @@ export default function SectionOverlay({
 
               {/* Tech Badges */}
               <div className="flex flex-wrap gap-1.5 mb-5">
-                {['Next.js 15', 'GSAP 3', 'ScrollTrigger', '5 Ngôn ngữ', 'Ambient Audio', 'Reduced Motion'].map((t) => (
+                {['Next.js 15', 'GSAP 3', 'ScrollTrigger', '5 ngôn ngữ', 'Nhạc nền', 'Giảm chuyển động'].map((t) => (
                   <span
                     key={t}
                     className="px-2 py-0.5 rounded-md text-[11px] bg-slate-900 border border-slate-700/80 text-slate-300"
@@ -345,7 +345,7 @@ export default function SectionOverlay({
                   rel="noopener noreferrer"
                   className="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-slate-600 text-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-all"
                 >
-                  <span>Mở website live</span>
+                  <span>Mở website</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
               </div>
@@ -365,11 +365,11 @@ export default function SectionOverlay({
           >
             <div className="p-6 sm:p-8 rounded-2xl bg-slate-950/85 border border-slate-800 backdrop-blur-xl shadow-2xl select-none">
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-slate-900 border border-slate-800 text-cyan-300 text-xs font-mono mb-3">
-                <span>Wasat · Kỹ năng chuyên môn</span>
+                <span>Wasat · Kỹ năng</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-bold text-white font-display mb-5">
-                Kỹ năng & Công nghệ
+                Công nghệ mình dùng
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -413,11 +413,11 @@ export default function SectionOverlay({
           >
             <div className="p-6 sm:p-8 rounded-2xl bg-slate-950/85 border border-slate-800 backdrop-blur-xl shadow-2xl select-none">
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-slate-900 border border-slate-800 text-indigo-300 text-xs font-mono mb-3">
-                <span>Mebsuta · Học vấn & Định hướng</span>
+                <span>Mebsuta · Học vấn</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-bold text-white font-display mb-4">
-                Học vấn & Mục tiêu
+                Học vấn và hướng đi
               </h2>
 
               <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 mb-5">
@@ -433,12 +433,12 @@ export default function SectionOverlay({
                   Ngành: <strong>{PERSONAL_INFO.major}</strong>
                 </p>
                 <p className="text-xs text-slate-400 leading-relaxed">
-                  Tập trung nghiên cứu Web Development, Full-stack và IT Automation. Chủ động thực hành xây dựng các sản phẩm thực tế có giao diện chỉn chu và luồng dữ liệu hoàn chỉnh.
+                  Mình đang học CNTT tại HUTECH, đồng thời làm các dự án web full-stack và tự động hóa để áp dụng kiến thức vào thực tế.
                 </p>
               </div>
 
               <h4 className="text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2.5">
-                Định hướng phát triển
+                Điều mình muốn học tiếp
               </h4>
               <div className="space-y-2">
                 {PERSONAL_INFO.careerGoals.map((goal, idx) => (
@@ -469,14 +469,14 @@ export default function SectionOverlay({
           >
             <div className="p-6 sm:p-8 rounded-2xl bg-slate-950/85 border border-slate-800 backdrop-blur-xl shadow-2xl select-none">
               <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-slate-900 border border-slate-800 text-emerald-300 text-xs font-mono mb-3">
-                <span>Propus · Thông tin liên hệ</span>
+                <span>Propus · Liên hệ</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl font-bold text-white font-display mb-2">
-                Liên hệ & Hợp tác
+                Trao đổi với mình
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mb-6">
-                Tôi luôn sẵn sàng trao đổi về cơ hội việc làm, dự án phát triển web và các bài toán tự động hóa.
+                Mình sẵn sàng trao đổi về công việc phát triển web, tự động hóa hoặc một dự án phù hợp.
               </p>
 
               <div className="space-y-2.5 mb-5">
@@ -536,7 +536,7 @@ export default function SectionOverlay({
                   className="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-slate-600 text-slate-200 text-xs font-semibold flex items-center gap-2 transition-all"
                 >
                   <Github className="w-3.5 h-3.5" />
-                  <span>GitHub: AlannThanhPhong</span>
+                  <span>GitHub</span>
                 </a>
                 <a
                   href={PERSONAL_INFO.linkedin}

@@ -67,7 +67,7 @@ export default function Navigation({
             className="hidden lg:flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-400 text-cyan-200 text-xs font-mono transition-all shadow-lg shadow-cyan-950/40"
           >
             <span className="text-cyan-400 font-bold">←</span>
-            <span>Về lại chòm sao Song Tử</span>
+            <span>Về Song Tử</span>
           </button>
         ) : (
           <nav className="hidden lg:flex items-center gap-1 bg-slate-950/80 border border-slate-800 rounded-full px-2.5 py-1 backdrop-blur-md shadow-xl">
@@ -111,12 +111,12 @@ export default function Navigation({
                 ? 'bg-cyan-500/25 border-cyan-400 text-cyan-200 ring-2 ring-cyan-500/40 shadow-lg shadow-cyan-500/10'
                 : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:text-cyan-300 hover:border-slate-700'
             }`}
-            title={activeConstellationId ? 'Ẩn / Mở bảng thông tin để ngắm 360°' : isOrbitMode ? 'Thoát chế độ ngắm 360°' : 'Bật chế độ ngắm chòm sao 360°'}
-            aria-label="Toggle 360 Orbit View"
+            title={activeConstellationId ? 'Ẩn hoặc mở bảng thông tin' : isOrbitMode ? 'Thoát chế độ xem 360°' : 'Xem chòm sao ở chế độ 360°'}
+            aria-label="Bật hoặc tắt chế độ xem 360°"
           >
             <Orbit className={`w-4 h-4 ${isOrbitMode || activeConstellationId ? 'animate-spin text-cyan-300' : 'text-slate-400'}`} style={{ animationDuration: '6s' }} />
             <span className="font-mono">
-              {activeConstellationId ? 'Ngắm 360°' : isOrbitMode ? 'Thoát 360°' : 'Ngắm 360°'}
+              {activeConstellationId ? 'Xem 360°' : isOrbitMode ? 'Thoát 360°' : 'Xem 360°'}
             </span>
           </button>
 
@@ -129,7 +129,7 @@ export default function Navigation({
                 : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200'
             }`}
             title={audioEnabled ? 'Tắt âm thanh tương tác' : 'Bật âm thanh tương tác'}
-            aria-label="Toggle Cosmic Audio"
+            aria-label="Bật hoặc tắt âm thanh"
           >
             {audioEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
           </button>
@@ -140,7 +140,7 @@ export default function Navigation({
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-white transition-all hidden sm:flex"
-            aria-label="GitHub Profile"
+            aria-label="Hồ sơ GitHub"
           >
             <Github className="w-4 h-4" />
           </a>
@@ -150,7 +150,7 @@ export default function Navigation({
             target="_blank"
             rel="noopener noreferrer"
             className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-cyan-300 transition-all hidden sm:flex"
-            aria-label="LinkedIn Profile"
+            aria-label="Hồ sơ LinkedIn"
           >
             <Linkedin className="w-4 h-4" />
           </a>
@@ -159,7 +159,7 @@ export default function Navigation({
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="lg:hidden p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-cyan-300"
-            aria-label="Menu"
+            aria-label="Mở menu"
           >
             <Compass className="w-4 h-4" />
           </button>
@@ -171,7 +171,7 @@ export default function Navigation({
         <div className="lg:hidden bg-slate-950/95 border-b border-slate-800 backdrop-blur-xl px-4 py-3 space-y-2 shadow-2xl">
           <div className="flex items-center justify-between pb-2 border-b border-slate-800/80">
             <p className="text-[11px] font-mono text-cyan-300 uppercase tracking-wider">
-              Chòm sao Song Tử — Điều hướng
+              Song Tử · Điều hướng
             </p>
             <button
               onClick={() => {
@@ -181,7 +181,7 @@ export default function Navigation({
               className="px-2.5 py-1 rounded-lg bg-cyan-500/20 border border-cyan-400/60 text-cyan-300 text-xs font-mono flex items-center gap-1.5"
             >
               <Orbit className="w-3.5 h-3.5" />
-              <span>{isOrbitMode ? 'Thoát 360°' : 'Ngắm 360°'}</span>
+              <span>{isOrbitMode ? 'Thoát 360°' : 'Xem 360°'}</span>
             </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">

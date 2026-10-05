@@ -26,7 +26,7 @@ const Canvas3D = dynamic(() => import('@/components/Canvas3D'), {
         ♊︎
       </div>
       <p className="text-xs font-mono text-slate-400 tracking-wider">
-        Khởi tạo chòm sao Song Tử...
+        Đang mở bản đồ Song Tử...
       </p>
     </div>
   ),
@@ -263,7 +263,7 @@ export default function PortfolioPage() {
           <div className="flex items-center gap-2 text-cyan-300 text-xs font-medium">
             <Orbit className="w-4 h-4 animate-spin text-cyan-400" style={{ animationDuration: '6s' }} />
             <span className="font-mono text-[11px] sm:text-xs">
-              Kéo chuột để xoay 360° quanh Song Tử · Cuộn để zoom
+              Kéo để xoay · Cuộn để phóng to
             </span>
           </div>
           {!isOrbitInspectorOpen && (
@@ -272,7 +272,7 @@ export default function PortfolioPage() {
               <button
                 onClick={() => setIsOrbitInspectorOpen(true)}
                 className="px-2.5 py-1 rounded-lg bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/50 text-cyan-200 text-xs font-mono transition-all flex items-center gap-1.5"
-                title="Mở bảng thông tin dự án & ngôi sao"
+                title="Mở thông tin dự án và ngôi sao"
               >
                 <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Xem dự án</span>
@@ -296,7 +296,7 @@ export default function PortfolioPage() {
           <div className="flex items-center gap-2 text-cyan-300 text-xs font-medium">
             <Orbit className="w-4 h-4 animate-spin text-cyan-400" style={{ animationDuration: '6s' }} />
             <span className="font-mono text-[11px] sm:text-xs">
-              Kéo chuột để xoay 360° quanh {currentConstellation.name} ({currentConstellation.latinName}) · Cuộn để zoom
+              Kéo để xoay {currentConstellation.name} · Cuộn để phóng to
             </span>
           </div>
 
@@ -311,7 +311,7 @@ export default function PortfolioPage() {
                 ? 'bg-slate-800 hover:bg-slate-700 border-slate-600 text-slate-300'
                 : 'bg-cyan-500/20 hover:bg-cyan-500/30 border-cyan-400/60 text-cyan-200 shadow-glow-cyan'
             }`}
-            title="Bật/Tắt bảng thông tin chi tiết chòm sao"
+            title="Ẩn hoặc mở thông tin chòm sao"
           >
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
             <span>{isConstellationCardOpen ? 'Ẩn bảng để ngắm 360°' : 'Xem thông tin'}</span>
@@ -324,7 +324,7 @@ export default function PortfolioPage() {
               setActiveConstellationId(null);
             }}
             className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 hover:text-white text-xs font-mono transition-all flex items-center gap-1 shrink-0"
-            title="Quay lại chòm Song Tử"
+            title="Về Song Tử"
           >
             <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
             <span>Về Song Tử</span>
@@ -339,7 +339,7 @@ export default function PortfolioPage() {
           className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 text-slate-400 hover:text-cyan-300 transition-colors cursor-pointer animate-bounce pointer-events-auto"
         >
           <span className="text-[10px] font-mono tracking-wider uppercase">
-            Cuộn để xem dự án
+            Cuộn trang để xem từng phần
           </span>
           <ChevronDown className="w-4 h-4 text-cyan-400" />
         </div>

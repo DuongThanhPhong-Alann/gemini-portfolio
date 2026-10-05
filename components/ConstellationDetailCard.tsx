@@ -81,16 +81,16 @@ export default function ConstellationDetailCard({
                   onToggle360?.();
                 }}
                 className="px-2.5 py-1.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/50 text-cyan-200 hover:text-white text-xs font-mono flex items-center gap-1.5 transition-all shadow-glow-cyan"
-                title="Bật chế độ ngắm 360° toàn cảnh (Ẩn bảng)"
+                title="Ẩn thông tin để xem 360°"
               >
                 <Orbit className="w-3.5 h-3.5 animate-spin text-cyan-300" style={{ animationDuration: '6s' }} />
-                <span>Ngắm 360°</span>
+                <span>Xem 360°</span>
               </button>
 
               <button
                 onClick={onReturnToGemini}
                 className="p-1.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700/80 text-slate-400 hover:text-white transition-all shrink-0"
-                title="Đóng / Về lại Song Tử"
+                title="Đóng và về Song Tử"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -104,7 +104,7 @@ export default function ConstellationDetailCard({
             </p>
             <div className="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400 leading-relaxed italic">
               <span className="text-cyan-300 font-semibold not-italic block mb-0.5">
-                ✦ Thần thoại:
+                ✦ Truyền thuyết:
               </span>
               {constellation.mythology}
             </div>
@@ -115,9 +115,9 @@ export default function ConstellationDetailCard({
             <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
               <span className="flex items-center gap-1.5 text-cyan-300 font-semibold">
                 <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Các ngôi sao chính ({constellation.stars.length})</span>
+                <span>Các sao nổi bật ({constellation.stars.length})</span>
               </span>
-              <span className="text-[10px] text-slate-500">Đồ họa 3D thực thể</span>
+              <span className="text-[10px] text-slate-500">Mô hình 3D</span>
             </div>
 
             <div className="max-h-48 overflow-y-auto pr-1 space-y-1.5 custom-scrollbar">
@@ -173,7 +173,7 @@ export default function ConstellationDetailCard({
               className="py-1.5 px-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-glow-cyan"
             >
               <ArrowLeft className="w-3.5 h-3.5 text-slate-950" />
-              <span>Về lại Song Tử</span>
+              <span>Về Song Tử</span>
             </button>
 
             <button
