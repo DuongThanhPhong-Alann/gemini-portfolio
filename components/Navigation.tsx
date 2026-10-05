@@ -38,12 +38,12 @@ export default function Navigation({
           onClick={() => onNavigate(0)}
           className="flex items-center gap-3 text-left group focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-cyan-300 font-bold transition-all group-hover:border-cyan-500/50">
+          <div className="w-9 h-9 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-200 font-bold transition-all group-hover:border-zinc-700">
             <span>♊︎</span>
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-sm font-semibold tracking-wide text-white uppercase font-display group-hover:text-cyan-300 transition-colors">
+              <span className="text-sm font-semibold tracking-wide text-white uppercase font-display group-hover:text-zinc-200 transition-colors">
                 {PERSONAL_INFO.name}
               </span>
               <span className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
@@ -51,7 +51,7 @@ export default function Navigation({
                 Open for work
               </span>
             </div>
-            <p className="text-[11px] text-slate-400 hidden sm:block">
+            <p className="text-[11px] text-zinc-400 hidden sm:block">
               Web & Full-stack Developer
             </p>
           </div>
@@ -64,13 +64,13 @@ export default function Navigation({
               cosmicAudio.playStarChime(480);
               onSelectConstellation?.(null);
             }}
-            className="hidden lg:flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-400 text-cyan-200 text-xs font-mono transition-all shadow-lg shadow-cyan-950/40"
+            className="hidden lg:flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-900 hover:bg-zinc-800 border border-white/20 text-white text-xs font-mono transition-all shadow-lg shadow-black/50"
           >
-            <span className="text-cyan-400 font-bold">←</span>
+            <span className="text-zinc-400 font-bold">←</span>
             <span>Về Song Tử</span>
           </button>
         ) : (
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-950/80 border border-slate-800 rounded-full px-2.5 py-1 backdrop-blur-md shadow-xl">
+          <nav className="hidden lg:flex items-center gap-1 bg-zinc-950/80 border border-zinc-800 rounded-full px-2.5 py-1 backdrop-blur-md shadow-xl">
             {CONSTELLATION_NODES.map((node, idx) => {
               const isActive = activeSection === idx;
               return (
@@ -82,13 +82,13 @@ export default function Navigation({
                   }}
                   className={`px-3 py-1 text-xs font-medium rounded-full transition-all flex items-center gap-1.5 ${
                     isActive
-                      ? 'bg-slate-800 text-cyan-300 border border-slate-700 shadow-sm'
-                      : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
+                      ? 'bg-zinc-800 text-white border border-zinc-700 shadow-sm'
+                      : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900'
                   }`}
                 >
                   <span
                     className={`w-1.5 h-1.5 rounded-full ${
-                      isActive ? 'bg-cyan-400' : 'bg-slate-600'
+                      isActive ? 'bg-white' : 'bg-zinc-600'
                     }`}
                   />
                   {node.starName}
@@ -108,13 +108,13 @@ export default function Navigation({
             }}
             className={`flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-xl border backdrop-blur-md transition-all text-xs font-medium ${
               isOrbitMode || activeConstellationId
-                ? 'bg-cyan-500/25 border-cyan-400 text-cyan-200 ring-2 ring-cyan-500/40 shadow-lg shadow-cyan-500/10'
-                : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:text-cyan-300 hover:border-slate-700'
+                ? 'bg-white text-zinc-950 font-bold border-white shadow-md'
+                : 'bg-zinc-900/80 border-zinc-800 text-zinc-300 hover:text-white hover:border-zinc-700'
             }`}
             title={activeConstellationId ? 'Ẩn hoặc mở bảng thông tin' : isOrbitMode ? 'Thoát chế độ xem 360°' : 'Xem chòm sao ở chế độ 360°'}
             aria-label="Bật hoặc tắt chế độ xem 360°"
           >
-            <Orbit className={`w-4 h-4 ${isOrbitMode || activeConstellationId ? 'animate-spin text-cyan-300' : 'text-slate-400'}`} style={{ animationDuration: '6s' }} />
+            <Orbit className={`w-4 h-4 ${isOrbitMode || activeConstellationId ? 'animate-spin text-zinc-900' : 'text-zinc-400'}`} style={{ animationDuration: '6s' }} />
             <span className="font-mono">
               {activeConstellationId ? 'Xem 360°' : isOrbitMode ? 'Thoát 360°' : 'Xem 360°'}
             </span>
@@ -125,8 +125,8 @@ export default function Navigation({
             onClick={handleToggleAudio}
             className={`p-2 rounded-xl border backdrop-blur-md transition-all ${
               audioEnabled
-                ? 'bg-cyan-500/20 border-cyan-400/80 text-cyan-300'
-                : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200'
+                ? 'bg-zinc-800 border-white/20 text-white'
+                : 'bg-zinc-900/80 border-zinc-800 text-zinc-400 hover:text-zinc-200'
             }`}
             title={audioEnabled ? 'Tắt âm thanh tương tác' : 'Bật âm thanh tương tác'}
             aria-label="Bật hoặc tắt âm thanh"
@@ -139,7 +139,7 @@ export default function Navigation({
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-white transition-all hidden sm:flex"
+            className="p-2 rounded-xl bg-zinc-900/80 border border-zinc-800 text-zinc-400 hover:text-white transition-all hidden sm:flex"
             aria-label="Hồ sơ GitHub"
           >
             <Github className="w-4 h-4" />
@@ -149,7 +149,7 @@ export default function Navigation({
             href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-cyan-300 transition-all hidden sm:flex"
+            className="p-2 rounded-xl bg-zinc-900/80 border border-zinc-800 text-zinc-400 hover:text-white transition-all hidden sm:flex"
             aria-label="Hồ sơ LinkedIn"
           >
             <Linkedin className="w-4 h-4" />
@@ -158,7 +158,7 @@ export default function Navigation({
           {/* Mobile Drawer Toggle */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300 hover:text-cyan-300"
+            className="lg:hidden p-2 rounded-xl bg-zinc-900/80 border border-zinc-800 text-zinc-300 hover:text-white"
             aria-label="Mở menu"
           >
             <Compass className="w-4 h-4" />
@@ -168,9 +168,9 @@ export default function Navigation({
 
       {/* Mobile Drawer Dropdown */}
       {menuOpen && (
-        <div className="lg:hidden bg-slate-950/95 border-b border-slate-800 backdrop-blur-xl px-4 py-3 space-y-2 shadow-2xl">
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800/80">
-            <p className="text-[11px] font-mono text-cyan-300 uppercase tracking-wider">
+        <div className="lg:hidden bg-zinc-950/95 border-b border-zinc-800 backdrop-blur-xl px-4 py-3 space-y-2 shadow-2xl">
+          <div className="flex items-center justify-between pb-2 border-b border-zinc-800/80">
+            <p className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">
               Song Tử · Điều hướng
             </p>
             <button
@@ -178,9 +178,9 @@ export default function Navigation({
                 onToggleOrbitMode();
                 setMenuOpen(false);
               }}
-              className="px-2.5 py-1 rounded-lg bg-cyan-500/20 border border-cyan-400/60 text-cyan-300 text-xs font-mono flex items-center gap-1.5"
+              className="px-2.5 py-1 rounded-lg bg-zinc-900 border border-zinc-700 text-zinc-200 text-xs font-mono flex items-center gap-1.5"
             >
-              <Orbit className="w-3.5 h-3.5" />
+              <Orbit className="w-3.5 h-3.5 text-zinc-400" />
               <span>{isOrbitMode ? 'Thoát 360°' : 'Xem 360°'}</span>
             </button>
           </div>
@@ -195,15 +195,15 @@ export default function Navigation({
                 }}
                 className={`w-full text-left px-3 py-2 rounded-lg text-xs flex items-center justify-between transition-all ${
                   activeSection === idx
-                    ? 'bg-slate-800 text-cyan-300 border border-slate-700'
-                    : 'text-slate-300 hover:bg-slate-900'
+                    ? 'bg-zinc-800 text-white border border-zinc-700'
+                    : 'text-zinc-300 hover:bg-zinc-900'
                 }`}
               >
                 <div>
                   <span className="font-semibold">{node.starName}</span>
-                  <span className="text-slate-400 ml-2 text-[11px]">{node.subtitle}</span>
+                  <span className="text-zinc-400 ml-2 text-[11px]">{node.subtitle}</span>
                 </div>
-                <span className="text-[10px] text-slate-500 font-mono">0{idx + 1}</span>
+                <span className="text-[10px] text-zinc-500 font-mono">0{idx + 1}</span>
               </button>
             ))}
           </div>

@@ -37,15 +37,15 @@ export default function ConstellationMap({
 
   return (
     <div className="fixed bottom-[78px] right-6 z-30 hidden md:block pointer-events-auto select-none">
-      <div className="p-3 rounded-2xl bg-slate-950/85 border border-slate-800 backdrop-blur-md shadow-xl transition-all hover:border-slate-700">
-        <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-slate-800">
+      <div className="p-3 rounded-2xl bg-zinc-950/90 border border-white/10 backdrop-blur-md shadow-2xl shadow-black/80 transition-all hover:border-white/20">
+        <div className="flex items-center justify-between gap-2 mb-2 pb-1.5 border-b border-zinc-800">
           <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-            <span className="text-[10px] font-mono text-slate-300 uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+            <span className="text-[10px] font-mono text-zinc-300 uppercase tracking-wider">
               Song Tử
             </span>
           </div>
-          <span className="text-[10px] text-cyan-400 font-mono">
+          <span className="text-[10px] text-zinc-400 font-mono">
             0{activeSection + 1}/07
           </span>
         </div>
@@ -67,7 +67,7 @@ export default function ConstellationMap({
                   y1={n1.y}
                   x2={n2.x}
                   y2={n2.y}
-                  stroke={isHighlighted ? '#38bdf8' : '#475569'}
+                  stroke={isHighlighted ? '#ffffff' : '#52525b'}
                   strokeWidth={isHighlighted ? '1.8' : '1'}
                   strokeDasharray={isHighlighted ? 'none' : '2,2'}
                   opacity={isHighlighted ? 0.9 : 0.45}
@@ -95,7 +95,7 @@ export default function ConstellationMap({
                       cy={node.y}
                       r="10"
                       fill="none"
-                      stroke="#38bdf8"
+                      stroke="#ffffff"
                       strokeWidth="1"
                       className="animate-ping opacity-70"
                     />
@@ -105,8 +105,8 @@ export default function ConstellationMap({
                     cx={node.x}
                     cy={node.y}
                     r={isActive ? '4.5' : '3.5'}
-                    fill={isActive ? '#38bdf8' : '#94a3b8'}
-                    className="transition-all duration-200 group-hover/star:fill-cyan-300"
+                    fill={isActive ? '#ffffff' : '#a1a1aa'}
+                    className="transition-all duration-200 group-hover/star:fill-white"
                   />
                   {/* Star label */}
                   <text
@@ -115,8 +115,8 @@ export default function ConstellationMap({
                     textAnchor="middle"
                     className={`text-[8px] font-mono select-none pointer-events-none transition-colors ${
                       isActive
-                        ? 'fill-cyan-300 font-semibold'
-                        : 'fill-slate-400 group-hover/star:fill-slate-200'
+                        ? 'fill-white font-semibold'
+                        : 'fill-zinc-400 group-hover/star:fill-zinc-200'
                     }`}
                   >
                     {node.label}
@@ -128,9 +128,9 @@ export default function ConstellationMap({
         </div>
 
         {/* Current Destination Name */}
-        <div className="mt-1 pt-1.5 border-t border-slate-800 flex items-center justify-between text-[10px]">
-          <span className="text-slate-400">Đang xem:</span>
-          <span className="text-cyan-300 font-medium">
+        <div className="mt-1 pt-1.5 border-t border-zinc-800 flex items-center justify-between text-[10px]">
+          <span className="text-zinc-500">Đang xem:</span>
+          <span className="text-zinc-200 font-medium">
             {currentNode?.starName} ({currentNode?.subtitle})
           </span>
         </div>

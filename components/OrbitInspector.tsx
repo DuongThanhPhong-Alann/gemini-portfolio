@@ -59,18 +59,18 @@ export default function OrbitInspector({
         transition={{ duration: 0.3, ease: 'easeOut' }}
         className="fixed top-20 left-4 sm:left-8 z-30 w-full max-w-sm sm:max-w-md pointer-events-auto select-none"
       >
-        <div className="p-5 rounded-2xl bg-slate-950/90 border border-cyan-500/40 backdrop-blur-xl shadow-2xl shadow-cyan-950/50">
+        <div className="p-5 rounded-2xl bg-zinc-950/90 border border-white/10 backdrop-blur-xl shadow-2xl shadow-black/80 text-zinc-100">
           {/* Header Row */}
-          <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+          <div className="flex items-center justify-between pb-3 mb-3 border-b border-zinc-800/80">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-              <span className="text-[11px] font-mono text-cyan-300 uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-white/70" />
+              <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider">
                 {currentNode.starName} · {currentNode.subtitle}
               </span>
             </div>
             <button
               onClick={onClose}
-              className="p-1 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-400 hover:text-white transition-colors"
+              className="p-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-400 hover:text-white transition-colors"
               title="Đóng"
             >
               <X className="w-4 h-4" />
@@ -86,16 +86,16 @@ export default function OrbitInspector({
                   <h3 className="text-xl font-bold text-white font-display">
                     {currentProject.title}
                   </h3>
-                  <p className="text-xs text-cyan-300/90 font-medium">
+                  <p className="text-xs text-zinc-400 font-medium">
                     {currentProject.subtitle}
                   </p>
                 </div>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/30 shrink-0">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-white/5 text-zinc-300 border border-white/10 shrink-0">
                   Dự án 0{activeSection}
                 </span>
               </div>
 
-              <p className="text-xs text-slate-300 leading-relaxed line-clamp-3">
+              <p className="text-xs text-zinc-300 leading-relaxed line-clamp-3">
                 {currentProject.summary}
               </p>
 
@@ -104,7 +104,7 @@ export default function OrbitInspector({
                 {currentProject.techStack.slice(0, 4).map((t) => (
                   <span
                     key={t.name}
-                    className="px-2 py-0.5 rounded-md text-[10px] bg-slate-900 border border-slate-700/80 text-slate-300 font-mono"
+                    className="px-2 py-0.5 rounded-md text-[10px] bg-zinc-900 border border-zinc-800 text-zinc-300 font-mono"
                   >
                     {t.name}
                   </span>
@@ -118,16 +118,16 @@ export default function OrbitInspector({
                     cosmicAudio.playStarChime(500);
                     onOpenProjectModal(currentProject.id);
                   }}
-                  className="flex-1 py-2 px-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-glow-cyan"
+                  className="flex-1 py-2 px-3 rounded-xl bg-white hover:bg-zinc-100 text-zinc-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md"
                 >
-                  <FileText className="w-3.5 h-3.5" />
+                  <FileText className="w-3.5 h-3.5 text-zinc-950" />
                   <span>Xem chi tiết dự án</span>
                 </button>
                 <a
                   href={currentProject.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"
+                  className="py-2 px-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all"
                 >
                   <span>Mở website</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -143,16 +143,16 @@ export default function OrbitInspector({
                 <h3 className="text-xl font-bold text-white font-display">
                   {PERSONAL_INFO.name}
                 </h3>
-                <p className="text-xs text-cyan-300 font-medium">
+                <p className="text-xs text-zinc-400 font-medium">
                   {PERSONAL_INFO.title}
                 </p>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-zinc-300 leading-relaxed">
                 {PERSONAL_INFO.bio}
               </p>
-              <div className="p-2.5 rounded-xl bg-slate-900/70 border border-slate-800 text-[11px] text-slate-300">
-                <span className="text-cyan-400 font-semibold">ĐH HUTECH (2022–2026)</span>
-                <p className="text-slate-400 mt-0.5">Full-stack & IT Automation</p>
+              <div className="p-2.5 rounded-xl bg-zinc-900/60 border border-zinc-800 text-[11px] text-zinc-300">
+                <span className="text-zinc-200 font-semibold">ĐH HUTECH (2022–2026)</span>
+                <p className="text-zinc-400 mt-0.5">Full-stack & IT Automation</p>
               </div>
             </div>
           )}
@@ -165,11 +165,11 @@ export default function OrbitInspector({
               </h3>
               <div className="grid grid-cols-2 gap-2 text-xs">
                 {SKILL_CATEGORIES.map((cat) => (
-                  <div key={cat.category} className="p-2 rounded-lg bg-slate-900/60 border border-slate-800">
-                    <span className="text-[10px] font-mono text-cyan-300 font-semibold uppercase">
+                  <div key={cat.category} className="p-2 rounded-lg bg-zinc-900/50 border border-zinc-800/80">
+                    <span className="text-[10px] font-mono text-zinc-400 font-semibold uppercase">
                       {cat.category}
                     </span>
-                    <p className="text-[11px] text-slate-300 truncate mt-1">
+                    <p className="text-[11px] text-zinc-300 truncate mt-1">
                       {cat.skills.map((s) => s.name).join(', ')}
                     </p>
                   </div>
@@ -183,13 +183,13 @@ export default function OrbitInspector({
             <div className="space-y-3">
               <div>
                 <h3 className="text-lg font-bold text-white font-display">
-                Học vấn và hướng đi
+                  Học vấn và định hướng
                 </h3>
-                <p className="text-xs text-indigo-300 font-semibold mt-1">
+                <p className="text-xs text-zinc-300 font-semibold mt-1">
                   {PERSONAL_INFO.school} ({PERSONAL_INFO.period})
                 </p>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-zinc-300 leading-relaxed">
                 Mình học {PERSONAL_INFO.major} tại HUTECH, tập trung vào web full-stack và tự động hóa.
               </p>
             </div>
@@ -201,28 +201,28 @@ export default function OrbitInspector({
               <h3 className="text-lg font-bold text-white font-display">
                 Liên hệ
               </h3>
-              <div className="space-y-1.5 text-xs text-slate-300">
-                <div className="p-2 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-between">
-                  <span className="text-slate-400">Email:</span>
-                  <a href={`mailto:${PERSONAL_INFO.email}`} className="text-cyan-300 font-medium hover:underline">
+              <div className="space-y-1.5 text-xs text-zinc-300">
+                <div className="p-2 rounded-lg bg-zinc-900/50 border border-zinc-800 flex items-center justify-between">
+                  <span className="text-zinc-400">Email:</span>
+                  <a href={`mailto:${PERSONAL_INFO.email}`} className="text-zinc-200 font-medium hover:underline">
                     {PERSONAL_INFO.email}
                   </a>
                 </div>
-                <div className="p-2 rounded-lg bg-slate-900/60 border border-slate-800 flex items-center justify-between">
-                  <span className="text-slate-400">SĐT:</span>
-                  <span className="text-slate-200 font-mono">{PERSONAL_INFO.phone}</span>
+                <div className="p-2 rounded-lg bg-zinc-900/50 border border-zinc-800 flex items-center justify-between">
+                  <span className="text-zinc-400">SĐT:</span>
+                  <span className="text-zinc-200 font-mono">{PERSONAL_INFO.phone}</span>
                 </div>
               </div>
             </div>
           )}
 
           {/* Quick Star Switcher inside 360 mode */}
-          <div className="mt-4 pt-3 border-t border-slate-800/80">
+          <div className="mt-4 pt-3 border-t border-zinc-800/80">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-                Chọn một ngôi sao để xem thông tin.
+              <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider">
+                Chọn một ngôi sao để xem thông tin
               </span>
-              <span className="text-[10px] font-mono text-cyan-400">
+              <span className="text-[10px] font-mono text-zinc-400">
                 0{activeSection + 1}/07
               </span>
             </div>
@@ -236,8 +236,8 @@ export default function OrbitInspector({
                   }}
                   className={`py-1 px-1.5 rounded-lg text-[10px] font-mono text-center transition-all ${
                     activeSection === idx
-                      ? 'bg-cyan-500/25 border border-cyan-400 text-cyan-200 font-bold'
-                      : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-slate-200'
+                      ? 'bg-white text-zinc-950 font-bold shadow-sm'
+                      : 'bg-zinc-900/80 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700'
                   }`}
                   title={`${node.starName} - ${node.subtitle}`}
                 >

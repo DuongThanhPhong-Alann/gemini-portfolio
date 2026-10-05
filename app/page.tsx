@@ -22,10 +22,10 @@ const Canvas3D = dynamic(() => import('@/components/Canvas3D'), {
   ssr: false,
   loading: () => (
     <div className="fixed inset-0 bg-space-950 flex flex-col items-center justify-center z-50">
-      <div className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-cyan-300 text-2xl animate-pulse mb-3">
+      <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-white text-2xl animate-pulse mb-3">
         ♊︎
       </div>
-      <p className="text-xs font-mono text-slate-400 tracking-wider">
+      <p className="text-xs font-mono text-zinc-400 tracking-wider">
         Đang mở bản đồ Song Tử...
       </p>
     </div>
@@ -159,7 +159,7 @@ export default function PortfolioPage() {
   }, [activeSection, selectedProjectId, activeConstellationId, isOrbitMode, navigateToSection]);
 
   return (
-    <main className="relative min-h-screen bg-space-950 text-slate-100 overflow-x-hidden selection:bg-cyan-500/20 selection:text-white">
+    <main className="relative min-h-screen bg-space-950 text-slate-100 overflow-x-hidden selection:bg-white/20 selection:text-white">
       {/* 3D WebGL Cosmic Constellation Canvas (Song Tử on Right, Left Open for Content) */}
       <Canvas3D
         currentProgress={currentProgress}
@@ -259,32 +259,32 @@ export default function PortfolioPage() {
 
       {/* 360° Free Exploration Mode Floating HUD for Song Tử */}
       {isOrbitMode && !activeConstellationId && (
-        <div className="fixed bottom-7 left-1/2 -translate-x-1/2 z-30 pointer-events-auto flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-slate-950/90 border border-cyan-500/40 backdrop-blur-xl shadow-2xl shadow-cyan-500/10">
-          <div className="flex items-center gap-2 text-cyan-300 text-xs font-medium">
-            <Orbit className="w-4 h-4 animate-spin text-cyan-400" style={{ animationDuration: '6s' }} />
+        <div className="fixed bottom-7 left-1/2 -translate-x-1/2 z-30 pointer-events-auto flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-zinc-950/90 border border-white/10 backdrop-blur-xl shadow-2xl shadow-black/80">
+          <div className="flex items-center gap-2 text-zinc-300 text-xs font-medium">
+            <Orbit className="w-4 h-4 animate-spin text-zinc-400" style={{ animationDuration: '6s' }} />
             <span className="font-mono text-[11px] sm:text-xs">
               Kéo để xoay · Cuộn để phóng to
             </span>
           </div>
           {!isOrbitInspectorOpen && (
             <>
-              <div className="w-[1px] h-4 bg-slate-700" />
+              <div className="w-[1px] h-4 bg-zinc-800" />
               <button
                 onClick={() => setIsOrbitInspectorOpen(true)}
-                className="px-2.5 py-1 rounded-lg bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/50 text-cyan-200 text-xs font-mono transition-all flex items-center gap-1.5"
+                className="px-2.5 py-1 rounded-lg bg-white hover:bg-zinc-100 text-zinc-950 text-xs font-mono font-bold transition-all flex items-center gap-1.5 shadow-sm"
                 title="Mở thông tin dự án và ngôi sao"
               >
-                <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
+                <BookOpen className="w-3.5 h-3.5 text-zinc-900" />
                 <span>Xem dự án</span>
               </button>
             </>
           )}
-          <div className="w-[1px] h-4 bg-slate-700" />
+          <div className="w-[1px] h-4 bg-zinc-800" />
           <button
             onClick={() => setIsOrbitMode(false)}
-            className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 hover:text-white text-xs font-mono transition-all flex items-center gap-1 shrink-0"
+            className="px-2.5 py-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 text-zinc-300 hover:text-white text-xs font-mono transition-all flex items-center gap-1 shrink-0"
           >
-            <X className="w-3.5 h-3.5 text-slate-400" />
+            <X className="w-3.5 h-3.5 text-zinc-400" />
             <span>Thoát</span>
           </button>
         </div>
@@ -292,15 +292,15 @@ export default function PortfolioPage() {
 
       {/* 360° Free Exploration Mode Floating HUD for Visited Constellation */}
       {activeConstellationId && currentConstellation && (
-        <div className="fixed bottom-7 left-1/2 -translate-x-1/2 z-30 pointer-events-auto flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-slate-950/90 border border-cyan-500/40 backdrop-blur-xl shadow-2xl shadow-cyan-500/10">
-          <div className="flex items-center gap-2 text-cyan-300 text-xs font-medium">
-            <Orbit className="w-4 h-4 animate-spin text-cyan-400" style={{ animationDuration: '6s' }} />
+        <div className="fixed bottom-7 left-1/2 -translate-x-1/2 z-30 pointer-events-auto flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-zinc-950/90 border border-white/10 backdrop-blur-xl shadow-2xl shadow-black/80">
+          <div className="flex items-center gap-2 text-zinc-300 text-xs font-medium">
+            <Orbit className="w-4 h-4 animate-spin text-zinc-400" style={{ animationDuration: '6s' }} />
             <span className="font-mono text-[11px] sm:text-xs">
               Kéo để xoay {currentConstellation.name} · Cuộn để phóng to
             </span>
           </div>
 
-          <div className="w-[1px] h-4 bg-slate-700" />
+          <div className="w-[1px] h-4 bg-zinc-800" />
           <button
             onClick={() => {
               cosmicAudio.playStarChime(isConstellationCardOpen ? 420 : 540);
@@ -308,25 +308,25 @@ export default function PortfolioPage() {
             }}
             className={`px-2.5 py-1 rounded-lg border text-xs font-mono transition-all flex items-center gap-1.5 ${
               isConstellationCardOpen
-                ? 'bg-slate-800 hover:bg-slate-700 border-slate-600 text-slate-300'
-                : 'bg-cyan-500/20 hover:bg-cyan-500/30 border-cyan-400/60 text-cyan-200 shadow-glow-cyan'
+                ? 'bg-zinc-900 hover:bg-zinc-800 border-zinc-700 text-zinc-300'
+                : 'bg-white hover:bg-zinc-100 text-zinc-950 font-bold border-white shadow-sm'
             }`}
             title="Ẩn hoặc mở thông tin chòm sao"
           >
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <Sparkles className={`w-3.5 h-3.5 ${isConstellationCardOpen ? 'text-zinc-400' : 'text-zinc-900'}`} />
             <span>{isConstellationCardOpen ? 'Ẩn bảng để ngắm 360°' : 'Xem thông tin'}</span>
           </button>
 
-          <div className="w-[1px] h-4 bg-slate-700" />
+          <div className="w-[1px] h-4 bg-zinc-800" />
           <button
             onClick={() => {
               cosmicAudio.playStarChime(420);
               setActiveConstellationId(null);
             }}
-            className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 hover:text-white text-xs font-mono transition-all flex items-center gap-1 shrink-0"
+            className="px-2.5 py-1 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 text-zinc-300 hover:text-white text-xs font-mono transition-all flex items-center gap-1 shrink-0"
             title="Về Song Tử"
           >
-            <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
+            <ArrowLeft className="w-3.5 h-3.5 text-zinc-400" />
             <span>Về Song Tử</span>
           </button>
         </div>
@@ -336,12 +336,12 @@ export default function PortfolioPage() {
       {activeSection === 0 && !isOrbitMode && !activeConstellationId && (
         <div
           onClick={() => navigateToSection(1)}
-          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 text-slate-400 hover:text-cyan-300 transition-colors cursor-pointer animate-bounce pointer-events-auto"
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-1 text-zinc-400 hover:text-white transition-colors cursor-pointer animate-bounce pointer-events-auto"
         >
           <span className="text-[10px] font-mono tracking-wider uppercase">
             Cuộn trang để xem từng phần
           </span>
-          <ChevronDown className="w-4 h-4 text-cyan-400" />
+          <ChevronDown className="w-4 h-4 text-zinc-400" />
         </div>
       )}
 

@@ -55,12 +55,10 @@ export default function StarPinsOverlay({
           <div
             key={pin.id}
             style={{
-              left: `${pin.x}px`,
-              top: `${pin.y}px`,
+              transform: `translate3d(${pin.x}px, ${pin.y}px, 0) ${transform}`,
               opacity,
-              transform,
             }}
-            className="absolute transition-all duration-300 pointer-events-auto hover:!opacity-100 hover:z-30"
+            className="absolute top-0 left-0 transition-opacity duration-150 pointer-events-auto hover:!opacity-100 hover:z-30 will-change-transform"
           >
             <button
               onClick={() => {
@@ -80,10 +78,10 @@ export default function StarPinsOverlay({
               }}
               className={`group flex items-center gap-1.5 rounded-full border backdrop-blur-md shadow-lg transition-all hover:scale-105 active:scale-95 text-[11px] font-mono ${
                 pin.isConstellation
-                  ? 'px-2 py-0.5 bg-slate-950/70 hover:bg-slate-900/90 border-slate-700/60 hover:border-cyan-400/70 text-slate-300 hover:text-cyan-200 shadow-cyan-950/20'
+                  ? 'px-2 py-0.5 bg-zinc-950/80 hover:bg-zinc-900 border-white/10 hover:border-white/25 text-zinc-300 hover:text-white shadow-black/40'
                   : pin.isConstellationStar
-                  ? 'px-2 py-0.5 bg-slate-950/90 border-blue-400/50 text-slate-200 hover:border-cyan-400'
-                  : 'px-2.5 py-1 bg-slate-950/85 hover:bg-slate-900 border-slate-700/80 hover:border-cyan-400/80 text-slate-200'
+                  ? 'px-2 py-0.5 bg-zinc-950/90 border-white/15 hover:border-white/30 text-zinc-200 hover:text-white'
+                  : 'px-2.5 py-1 bg-zinc-950/85 hover:bg-zinc-900 border-white/10 hover:border-white/25 text-zinc-200'
               }`}
             >
               {/* Star Indicator Dot */}
@@ -91,7 +89,7 @@ export default function StarPinsOverlay({
                 className={`rounded-full shrink-0 ${pin.isConstellation || pin.isConstellationStar ? 'w-1.5 h-1.5' : 'w-2 h-2'}`}
                 style={{
                   backgroundColor: pin.color,
-                  boxShadow: `0 0 6px ${pin.color}`,
+                  boxShadow: `0 0 5px ${pin.color}70`,
                 }}
               />
 
@@ -99,10 +97,10 @@ export default function StarPinsOverlay({
               <span
                 className={`font-semibold transition-colors ${
                   pin.isConstellation
-                    ? 'text-slate-300 group-hover:text-cyan-200 text-[10px] sm:text-[11px]'
+                    ? 'text-zinc-300 group-hover:text-white text-[10px] sm:text-[11px]'
                     : pin.isConstellationStar
-                    ? 'text-slate-200 group-hover:text-cyan-200 text-[10px]'
-                    : 'text-slate-200 group-hover:text-cyan-300'
+                    ? 'text-zinc-200 group-hover:text-white text-[10px]'
+                    : 'text-zinc-200 group-hover:text-white'
                 }`}
               >
                 {pin.name}
@@ -111,12 +109,12 @@ export default function StarPinsOverlay({
               {/* Project / Topic Name: ONLY for Gemini portfolio projects */}
               {pin.label && !pin.isConstellation && !pin.isConstellationStar && (
                 <>
-                  <span className="text-slate-600">·</span>
+                  <span className="text-zinc-600">·</span>
                   <span
                     className={`font-medium transition-colors ${
                       pin.isProject
-                        ? 'text-cyan-300 group-hover:text-cyan-200'
-                        : 'text-slate-400 group-hover:text-slate-200'
+                        ? 'text-zinc-300 group-hover:text-white'
+                        : 'text-zinc-400 group-hover:text-zinc-300'
                     }`}
                   >
                     {pin.label}
@@ -126,21 +124,21 @@ export default function StarPinsOverlay({
 
               {/* Subtitle for Constellation star appears ONLY on hover to prevent overlapping text */}
               {pin.isConstellationStar && pin.label && (
-                <span className="hidden group-hover:inline text-[9px] text-cyan-300/90 ml-0.5 transition-all">
+                <span className="hidden group-hover:inline text-[9px] text-zinc-400 ml-0.5 transition-all">
                   · {pin.label}
                 </span>
               )}
 
               {/* Constellation subtle explore arrow */}
               {pin.isConstellation && (
-                <span className="text-[10px] text-cyan-400/70 group-hover:text-cyan-300 ml-0.5 font-sans">
+                <span className="text-[10px] text-zinc-500 group-hover:text-zinc-300 ml-0.5 font-sans">
                   ↗
                 </span>
               )}
 
               {/* In 360 mode, show clickable project badge */}
               {isOrbitMode && pin.isProject && (
-                <span className="ml-1 text-[9px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 font-mono">
+                <span className="ml-1 text-[9px] px-1.5 py-0.5 rounded bg-white/10 text-zinc-200 border border-white/15 font-mono">
                   Xem ↗
                 </span>
               )}

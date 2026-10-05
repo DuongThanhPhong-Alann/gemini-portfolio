@@ -45,7 +45,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-space-950 text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-white">
+      <body className="bg-space-950 text-slate-100 antialiased selection:bg-white/20 selection:text-white">
         {children}
       </body>
     </html>
