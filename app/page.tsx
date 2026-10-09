@@ -8,10 +8,11 @@ import ConstellationMap from '@/components/ConstellationMap';
 import QuickControls from '@/components/QuickControls';
 import ProjectModal from '@/components/ProjectModal';
 import StarPinsOverlay from '@/components/StarPinsOverlay';
+import type { StarPinsOverlayHandle } from '@/components/StarPinsOverlay';
 import OrbitInspector from '@/components/OrbitInspector';
 import ConstellationDetailCard from '@/components/ConstellationDetailCard';
 import ConstellationSelector from '@/components/ConstellationSelector';
-import { StarPin } from '@/components/Canvas3D';
+import type { StarPin } from '@/components/Canvas3D';
 import { CONSTELLATION_NODES } from '@/data/portfolioData';
 import { CELESTIAL_CONSTELLATIONS } from '@/data/celestialConstellations';
 import { cosmicAudio } from '@/components/SoundEffects';
@@ -21,7 +22,7 @@ import { ChevronDown, Orbit, X, BookOpen, Sparkles, ArrowLeft } from 'lucide-rea
 const Canvas3D = dynamic(() => import('@/components/Canvas3D'), {
   ssr: false,
   loading: () => (
-    <div className="fixed inset-0 bg-space-950 flex flex-col items-center justify-center z-50">
+    <div className="fixed inset-0 bg-space-950 flex flex-col items-center justify-center z-0 pointer-events-none">
       <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-white text-2xl animate-pulse mb-3">
         ♊︎
       </div>
@@ -35,53 +36,42 @@ const Canvas3D = dynamic(() => import('@/components/Canvas3D'), {
 const TOTAL_SECTIONS = CONSTELLATION_NODES.length; // 7 waypoints (0 to 6)
 
 export default function PortfolioPage() {
-  const [currentProgress, setCurrentProgress] = useState(0);
   const [activeSection, setActiveSection] = useState(0);
   const [isOrbitMode, setIsOrbitMode] = useState(false);
   const [isOrbitInspectorOpen, setIsOrbitInspectorOpen] = useState(true);
   const [activeConstellationId, setActiveConstellationId] = useState<string | null>(null);
   const [isConstellationCardOpen, setIsConstellationCardOpen] = useState(true);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-  const [starPins, setStarPins] = useState<StarPin[]>([]);
-
-  const targetProgressRef = useRef(0);
+  const starPinsRef = useRef<StarPinsOverlayHandle>(null);
+  const updateStarPins = useCallback((pins: StarPin[]) => {
+    starPinsRef.current?.updatePins(pins);
+  }, []);
   const isNavigatingRef = useRef(false);
+  const activeSectionRef = useRef(activeSection);
+  activeSectionRef.current = activeSection;
 
-  // Silky Smooth Lerp Engine for Scroll Progress (No Jitter / Zero Lag)
+  // Only update React when scrolling crosses a section; the canvas eases the camera.
   useEffect(() => {
     let animId = 0;
 
-    const handleScroll = () => {
+    const updateSection = () => {
+      animId = 0;
       const scrollY = window.scrollY;
       const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const progress = (scrollY / maxScroll) * (TOTAL_SECTIONS - 1);
-      targetProgressRef.current = progress;
+      const section = Math.max(0, Math.min(TOTAL_SECTIONS - 1,
+        Math.round((scrollY / maxScroll) * (TOTAL_SECTIONS - 1))));
+      if (section !== activeSectionRef.current) {
+        activeSectionRef.current = section;
+        if (!isNavigatingRef.current) cosmicAudio.playStarChime(380 + section * 70);
+        setActiveSection(section);
+      }
     };
-
-    const updateLoop = () => {
-      setCurrentProgress((prev) => {
-        const target = targetProgressRef.current;
-        const diff = target - prev;
-        if (Math.abs(diff) < 0.0008) return target;
-        const next = prev + diff * 0.14; // Ultra-smooth exponential easing
-
-        const rounded = Math.round(next);
-        setActiveSection((prevSec) => {
-          if (prevSec !== rounded && !isNavigatingRef.current) {
-            cosmicAudio.playStarChime(380 + rounded * 70);
-          }
-          return rounded;
-        });
-
-        return next;
-      });
-
-      animId = requestAnimationFrame(updateLoop);
+    const handleScroll = () => {
+      if (!animId) animId = requestAnimationFrame(updateSection);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    animId = requestAnimationFrame(updateLoop);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -97,8 +87,7 @@ export default function PortfolioPage() {
     const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     const targetY = (boundedIndex / (TOTAL_SECTIONS - 1)) * maxScroll;
 
-    targetProgressRef.current = boundedIndex;
-    setCurrentProgress(boundedIndex);
+    activeSectionRef.current = boundedIndex;
     setActiveSection(boundedIndex);
 
     // Instant jump scroll without triggering continuous intermediate scroll events
@@ -162,12 +151,11 @@ export default function PortfolioPage() {
     <main className="relative min-h-screen bg-space-950 text-slate-100 overflow-x-hidden selection:bg-white/20 selection:text-white">
       {/* 3D WebGL Cosmic Constellation Canvas (Song Tử on Right, Left Open for Content) */}
       <Canvas3D
-        currentProgress={currentProgress}
         activeSectionIndex={activeSection}
         isOrbitMode={isOrbitMode}
         activeConstellationId={activeConstellationId}
         onStarClick={(idx) => navigateToSection(idx)}
-        onUpdateStarPins={(pins) => setStarPins(pins)}
+        onUpdateStarPins={updateStarPins}
         onEnterOrbitMode={() => {
           setIsOrbitMode(true);
           setIsOrbitInspectorOpen(true);
@@ -177,7 +165,7 @@ export default function PortfolioPage() {
 
       {/* Floating 2D Star Pins (Only star name & project label, NO heavy floating images) */}
       <StarPinsOverlay
-        pins={starPins}
+        ref={starPinsRef}
         activeSection={activeSection}
         isOrbitMode={isOrbitMode}
         onNavigate={navigateToSection}

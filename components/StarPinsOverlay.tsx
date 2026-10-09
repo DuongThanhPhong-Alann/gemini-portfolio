@@ -1,11 +1,10 @@
 'use client';
 
-import React from 'react';
-import { StarPin } from './Canvas3D';
+import React, { forwardRef, useImperativeHandle, useState } from 'react';
+import type { StarPin } from './Canvas3D';
 import { cosmicAudio } from './SoundEffects';
 
 interface StarPinsOverlayProps {
-  pins: StarPin[];
   activeSection: number;
   isOrbitMode?: boolean;
   onNavigate: (index: number) => void;
@@ -14,15 +13,20 @@ interface StarPinsOverlayProps {
   onSelectConstellation?: (id: string) => void;
 }
 
-export default function StarPinsOverlay({
-  pins,
+export interface StarPinsOverlayHandle {
+  updatePins: (pins: StarPin[]) => void;
+}
+
+const StarPinsOverlay = forwardRef<StarPinsOverlayHandle, StarPinsOverlayProps>(function StarPinsOverlay({
   activeSection,
   isOrbitMode = false,
   onNavigate,
   onOpenProjectModal,
   onSelectSection,
   onSelectConstellation,
-}: StarPinsOverlayProps) {
+}: StarPinsOverlayProps, ref) {
+  const [pins, setPins] = useState<StarPin[]>([]);
+  useImperativeHandle(ref, () => ({ updatePins: setPins }), []);
   return (
     <div className="fixed inset-0 pointer-events-none z-20 overflow-hidden">
       {pins.map((pin) => {
@@ -148,4 +152,6 @@ export default function StarPinsOverlay({
       })}
     </div>
   );
-}
+});
+
+export default StarPinsOverlay;

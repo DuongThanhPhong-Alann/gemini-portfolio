@@ -26,7 +26,6 @@ export interface StarPin {
 }
 
 interface Canvas3DProps {
-  currentProgress: number; // 0.0 to 6.0
   activeSectionIndex: number;
   isOrbitMode: boolean;
   activeConstellationId?: string | null;
@@ -315,8 +314,8 @@ function createZodiacLabelTexture(symbol: string, name: string): THREE.Texture {
  * - High-definition surface roughness & specular details
  */
 function createPlanetSurfaceTexture(theme: string): THREE.Texture {
-  const width = 1024;
-  const height = 512;
+  const width = 512;
+  const height = 256;
   const canvas = document.createElement('canvas');
   canvas.width = width;
   canvas.height = height;
@@ -457,8 +456,8 @@ function createPlanetSurfaceTexture(theme: string): THREE.Texture {
  * Generates transparent swirling cloud formations (like Earth / Jupiter clouds)
  */
 function createPlanetCloudTexture(): THREE.Texture {
-  const width = 1024;
-  const height = 512;
+  const width = 512;
+  const height = 256;
   const canvas = document.createElement('canvas');
   canvas.width = width;
   canvas.height = height;
@@ -585,7 +584,6 @@ function createMascotTexture(url: string, onLoad: (tex: THREE.CanvasTexture) => 
 }
 
 export default function Canvas3D({
-  currentProgress,
   activeSectionIndex,
   isOrbitMode,
   activeConstellationId,
@@ -597,8 +595,6 @@ export default function Canvas3D({
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const progressRef = useRef(currentProgress);
-  progressRef.current = currentProgress;
   const activeSectionRef = useRef(activeSectionIndex);
   activeSectionRef.current = activeSectionIndex;
   const isOrbitModeRef = useRef(isOrbitMode);
@@ -629,7 +625,7 @@ export default function Canvas3D({
       powerPreference: 'high-performance',
       alpha: false,
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, window.innerWidth < 768 ? 1 : 1.5));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -740,6 +736,16 @@ export default function Canvas3D({
 
     // Common cloud texture for terrestrial worlds
     const cloudTexture = createPlanetCloudTexture();
+    // Procedural surfaces depend only on theme. Share them across all planets.
+    const surfaceTextures = new Map<string, THREE.Texture>();
+    const getSurfaceTexture = (theme: string) => {
+      let texture = surfaceTextures.get(theme);
+      if (!texture) {
+        texture = createPlanetSurfaceTexture(theme);
+        surfaceTextures.set(theme, texture);
+      }
+      return texture;
+    };
 
     // Atmosphere Fresnel Glow Shader
     const createAtmosphereMaterial = (colorHex: string, defaultOpacity: number = 0.85) => {
@@ -786,7 +792,7 @@ export default function Canvas3D({
       geminiGroup.add(pGroup);
 
       // 1. Photorealistic Planet Surface Sphere
-      const surfaceTex = createPlanetSurfaceTexture(p.theme);
+      const surfaceTex = getSurfaceTexture(p.theme);
       const surfaceMat = new THREE.MeshStandardMaterial({
         map: surfaceTex,
         roughness: p.theme === 'gas-giant-gold' ? 0.35 : 0.65,
@@ -943,8 +949,8 @@ export default function Canvas3D({
         starGroup.position.set(...s.offset);
 
         // A. Photorealistic Planet Surface Sphere (Lit naturally by sunLight - Terminator shadows!)
-        const starGeo = new THREE.SphereGeometry(s.radius, 36, 28);
-        const starTex = createPlanetSurfaceTexture(s.theme || 'tech-cobalt');
+        const starGeo = new THREE.SphereGeometry(s.radius, 24, 16);
+        const starTex = getSurfaceTexture(s.theme || 'tech-cobalt');
         const surfaceMat = new THREE.MeshStandardMaterial({
           map: starTex,
           roughness: s.theme === 'gas-giant-gold' ? 0.35 : 0.65,
@@ -969,7 +975,7 @@ export default function Canvas3D({
             depthWrite: false,
           });
           cloudMesh = new THREE.Mesh(
-            new THREE.SphereGeometry(s.radius * 1.025, 28, 22),
+            new THREE.SphereGeometry(s.radius * 1.025, 20, 14),
             cloudMat
           );
           starGroup.add(cloudMesh);
@@ -978,7 +984,7 @@ export default function Canvas3D({
         // C. Atmospheric Fresnel Rim Glow (Hào quang khí quyển chân trời!)
         const atmoMat = createAtmosphereMaterial(s.atmosphereColor, 0.35);
         const atmoMesh = new THREE.Mesh(
-          new THREE.SphereGeometry(s.radius * 1.15, 28, 20),
+          new THREE.SphereGeometry(s.radius * 1.15, 20, 14),
           atmoMat
         );
         starGroup.add(atmoMesh);
@@ -1250,6 +1256,7 @@ export default function Canvas3D({
       const h = window.innerHeight;
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, w < 768 ? 1 : 1.5));
       renderer.setSize(w, h);
     };
     window.addEventListener('resize', handleResize);
@@ -1261,11 +1268,22 @@ export default function Canvas3D({
     let wasOrbitMode = false;
     let lastActiveConstellation: string | null | undefined = null;
     const tempVec = new THREE.Vector3();
+    const targetPos = new THREE.Vector3();
+    const targetLookAt = new THREE.Vector3();
+    const targetScaleVec = new THREE.Vector3();
+    let lastPinsTime = -Infinity;
+    let lastPins: StarPin[] = [];
 
     const animate = () => {
       animId = requestAnimationFrame(animate);
 
       const now = performance.now();
+      if (document.hidden) {
+        lastTime = now;
+        return;
+      }
+      // Avoid rendering at 120/144 Hz on high refresh rate screens.
+      if (now - lastTime < 1000 / 60 - 0.5) return;
       const dt = Math.min((now - lastTime) / 1000, 0.05);
       lastTime = now;
       clock += dt;
@@ -1280,8 +1298,6 @@ export default function Canvas3D({
         }
       }
 
-      const targetPos = new THREE.Vector3();
-      const targetLookAt = new THREE.Vector3();
 
       if (activeConstellationIdRef.current) {
         wasOrbitMode = false;
@@ -1429,9 +1445,9 @@ export default function Canvas3D({
         }
 
         // Slight breathing scale on active planet
-        const isCurrent = inst.planet.sectionIdx === Math.round(progressRef.current);
+        const isCurrent = inst.planet.sectionIdx === activeSectionRef.current;
         const targetScale = isCurrent ? 1.08 : 1.0;
-        inst.group.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
+        inst.group.scale.lerp(targetScaleVec.setScalar(targetScale), 0.1);
       });
 
       // Dynamic Prominence & Smooth Fade for Distant Constellations (Song Tử luôn là tâm điểm!)
@@ -1486,7 +1502,8 @@ export default function Canvas3D({
       renderer.render(scene, camera);
 
       // Project Celestial & Planet Coordinates to 2D Screen for HTML Pins
-      if (onUpdatePinsRef.current) {
+      if (onUpdatePinsRef.current && now - lastPinsTime >= 1000 / 30) {
+        lastPinsTime = now;
         const w = window.innerWidth;
         const h = window.innerHeight;
         const pins: StarPin[] = [];
@@ -1583,7 +1600,15 @@ export default function Canvas3D({
           }
         }
 
-        onUpdatePinsRef.current(pins);
+        const changed = pins.length !== lastPins.length || pins.some((pin, i) => {
+          const previous = lastPins[i];
+          return !previous || pin.id !== previous.id || pin.visible !== previous.visible ||
+            (pin.visible && (Math.abs(pin.x - previous.x) > 0.5 || Math.abs(pin.y - previous.y) > 0.5));
+        });
+        if (changed) {
+          lastPins = pins;
+          onUpdatePinsRef.current(pins);
+        }
       }
     };
 
@@ -1600,6 +1625,27 @@ export default function Canvas3D({
       window.removeEventListener('resize', handleResize);
       document.body.style.userSelect = '';
       (document.body.style as any).webkitUserSelect = '';
+      // React Strict Mode mounts twice in development. Release shared GPU resources once.
+      const geometries = new Set<THREE.BufferGeometry>();
+      const materials = new Set<THREE.Material>();
+      const textures = new Set<THREE.Texture>(surfaceTextures.values());
+      scene.traverse((object) => {
+        if (object instanceof THREE.Mesh || object instanceof THREE.Line ||
+            object instanceof THREE.Points || object instanceof THREE.Sprite) {
+          if ('geometry' in object) geometries.add(object.geometry);
+          const objectMaterials = Array.isArray(object.material) ? object.material : [object.material];
+          objectMaterials.forEach((material) => {
+            materials.add(material);
+            Object.values(material).forEach((value) => {
+              if (value instanceof THREE.Texture) textures.add(value);
+            });
+          });
+        }
+      });
+      geometries.forEach((geometry) => geometry.dispose());
+      materials.forEach((material) => material.dispose());
+      textures.forEach((texture) => texture.dispose());
+      surfaceTextures.clear();
       renderer.dispose();
     };
   }, []);
